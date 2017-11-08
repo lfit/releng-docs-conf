@@ -1,0 +1,17 @@
+The intention of this project is to be a shared conf.py project for lf-releng
+projects to share a common Sphinx configuration and theme. To use this load
+the docs-conf project as a submodule into your project and then symlink the
+provided conf.py file into your project's docs directory.
+
+Additionally a INFO.yaml file needs to be created providing the following
+minimal settings:
+
+    project-name: lf-releng-docs
+    author: Linux Foundation Releng
+    copyright: 2017, The Linux Foundation
+    version: master`
+
+This file is static and maintained by the docs-conf project however values in
+this file can be overrided by projects via the confext.py file if created next
+to the conf.py symlink file. When detected any variables in this file that is
+configured will override the values provided in conf.py.
