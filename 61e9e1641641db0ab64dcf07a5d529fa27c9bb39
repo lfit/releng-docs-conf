@@ -22,6 +22,30 @@
       "revId": "61e9e1641641db0ab64dcf07a5d529fa27c9bb39",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e42aa560_70f4be3b",
+        "filename": "conf.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2017-11-08T21:29:12Z",
+      "side": 1,
+      "message": "It\u0027s a file at the root of your project called pinfo.py that you will create that contains the meta data information. See: I371be992b35ad2fa5d06f739938b994ac0602761 for the other part of this change.\n\nI\u0027m not sure if this is the best way to do it but at least it get\u0027s us going.",
+      "parentUuid": "b82b2bdb_3d97bea8",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "61e9e1641641db0ab64dcf07a5d529fa27c9bb39",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
