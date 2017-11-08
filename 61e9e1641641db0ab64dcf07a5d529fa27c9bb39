@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b82b2bdb_3d97bea8",
+        "filename": "conf.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2017-11-08T21:27:52Z",
+      "side": 1,
+      "message": "What is \u0027pinfo\u0027 ?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "61e9e1641641db0ab64dcf07a5d529fa27c9bb39",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
