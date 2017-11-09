@@ -5,3 +5,8 @@
 .tox/
 docs/_build/
 MANIFEST
+build
+dist
+*.egg-info
+*.pyc
+.cache
