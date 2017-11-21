@@ -39,6 +39,24 @@
       "revId": "5bc83990fdcfb66e6c6c52a0a7687936c62da939",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c0ace0_426d65c7",
+        "filename": "docs-conf/defaults/opnfv.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2017-11-21T00:13:20Z",
+      "side": 1,
+      "message": "There needs to be some way for a project to define their own defaults so they don\u0027t need to be added to each repository\u0027s conf.cfg.\n\nUnless you know of another way to define these, I\u0027m not sure of a better solution currently. And these would only get sourced when an individual project adds \u0027project\u003dlfproject\u0027 to their conf.cfg.\n\nI imagine the probability is quite low for an external project labeling their docs (while also using this project) the same as an Linux Foundation project.",
+      "parentUuid": "537f94b6_76a57437",
+      "revId": "5bc83990fdcfb66e6c6c52a0a7687936c62da939",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
