@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0134bb7c_50526b40",
+        "filename": "README.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 103
+      },
+      "writtenOn": "2017-12-05T08:13:43Z",
+      "side": 1,
+      "message": "in my opinion, I would like to use yml instead of the config.py, only the build program in opnfvdocs to resolve these config data. yml config can be overrided easily. this keep the feature project only care about config instead of running.\n\nWe can use these config data to produce the config.py just like what pdf currently does.",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "0c8d073559881a1890eec1eacde8e3cc015f8a1e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
