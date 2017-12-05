@@ -22,6 +22,30 @@
       "revId": "0c8d073559881a1890eec1eacde8e3cc015f8a1e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "291110f3_96200cc8",
+        "filename": "README.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2017-12-05T16:58:27Z",
+      "side": 1,
+      "message": "Keep in mind that yaml is not part of Python standard library which means we need to require an additional 3rd party library if we want to support that format. This is often a struggle as more 3rd party libraries \u003d more complexity.\n\nFWIW we have an example of how to introduce a YAML parsing to conf.py in https://gerrit.linuxfoundation.org/infra/#/c/7432/4/conf.py",
+      "parentUuid": "0134bb7c_50526b40",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 26
+      },
+      "revId": "0c8d073559881a1890eec1eacde8e3cc015f8a1e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
