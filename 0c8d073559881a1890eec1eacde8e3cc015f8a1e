@@ -46,6 +46,23 @@
       "revId": "0c8d073559881a1890eec1eacde8e3cc015f8a1e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e7b0388_ffc9df6c",
+        "filename": "docs_conf/defaults/opnfv.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-10T15:50:27Z",
+      "side": 1,
+      "message": "Would be nicer if this was on multiple lines. I think INI supports this.",
+      "revId": "0c8d073559881a1890eec1eacde8e3cc015f8a1e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
