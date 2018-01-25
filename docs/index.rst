@@ -5,7 +5,7 @@ lfdocs-conf
 
 Linux Foundation Sphinx documentation common configuration project.
 
-This package is a set of default configurations for various Linux Foundation
+This package is a set of default configurations for Linux Foundation
 projects that use Sphinx to share a common configuration.
 
 Contents:
