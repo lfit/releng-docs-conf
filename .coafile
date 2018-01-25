@@ -21,7 +21,7 @@ bears = BanditBear,
     PyDocStyleBear,
     PyFlakesBear,
     PyImportSortBear
-files = conf.py
+files = docs_conf/**.py
 known_first_party_imports = lftools
 known_third_party_imports = pytest, six
 pydocstyle_ignore = D203, D213, D301

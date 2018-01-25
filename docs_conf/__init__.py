@@ -9,22 +9,20 @@
 # which accompanies this distribution, and is available at
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
-"""
-Sphinx Docs Config
+"""LF Sphinx Docs Config.
 
-Configure sphinx-doc through an ini file.
+Configure sphinx-doc through an YAML file.
 """
 
 import imp
 import os.path
-import pkg_resources
 
 import sphinx_bootstrap_theme
 import yaml
 
 
 def _merge_yaml(x, y):
-    """Merges dictionary 'y' into 'x'
+    """Merge dictionary 'y' into 'x'.
 
     This transaction will overwrite existing data values in "y" with values
     from "x".
@@ -35,7 +33,7 @@ def _merge_yaml(x, y):
 
 
 def collect_project_and_config():
-    """Pull project and configuration by merging all config sources
+    """Pull project and configuration by merging all config sources.
 
     Order of precedence:
 
@@ -50,7 +48,7 @@ def collect_project_and_config():
         raise IOError("No conf.yaml file found at: {}".format(os.getcwd()))
 
     with open('conf.yaml', 'r') as f:
-        local_config = yaml.load(f)
+        local_config = yaml.safe_load(f)
 
     project_cfg = local_config.get('project_cfg', None)
 
@@ -58,17 +56,18 @@ def collect_project_and_config():
 
     default_cfg = os.path.join(docs_path, 'defaults', 'default.yaml')
     with open(os.path.join(docs_path, default_cfg), 'r') as f:
-        effective_config = yaml.load(f)
+        effective_config = yaml.safe_load(f)
 
     project_cfg_file = os.path.join(docs_path, 'defaults', '{}.yaml'.format(project_cfg))
     if os.path.isfile(project_cfg_file):
         with open(os.path.join(docs_path, project_cfg_file), 'r') as f:
-            _project_cfg_data = yaml.load(f)
+            _project_cfg_data = yaml.safe_load(f)
         effective_config = _merge_yaml(effective_config, _project_cfg_data)
 
     effective_config = _merge_yaml(effective_config, local_config)
 
     return effective_config
+
 
 cfg = collect_project_and_config()
 
@@ -92,7 +91,7 @@ todo_include_todos = cfg.get('todo_include_todos', False)
 html_extra_path = cfg.get('html_extra_path', [])
 html_favicon = cfg.get('html_favicon', 'favicon.ico')
 html_logo = cfg.get('html_logo', '_static/logo.png')
-html_sidebars = cfg.get('html_sidebars', {'**': ['localtoc.html', 'relations.html'],})
+html_sidebars = cfg.get('html_sidebars', {'**': ['localtoc.html', 'relations.html'], })
 html_static_path = cfg.get('html_static_path', ['_static'])
 html_theme = cfg.get('html_theme', 'bootstrap')
 html_theme_options = cfg.get('html_theme_options', {
