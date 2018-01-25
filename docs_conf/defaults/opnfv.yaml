@@ -19,7 +19,7 @@ html_theme: bootstrap
 html_theme_options:
   bootswatch_theme: journal
   navbar_sidebarrel: False
-html_logo: _static/opnfv-logo.png
+html_logo: _static/logo.png
 html_favicon: _static/favicon.ico
 html_static_path:
   - _static
