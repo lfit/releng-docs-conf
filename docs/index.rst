@@ -6,14 +6,15 @@ lfdocs-conf
 Linux Foundation Sphinx documentation common configuration project.
 
 This package is a set of default configurations for Linux Foundation
-projects that use Sphinx to share a common configuration.
+projects that use Sphinx to share a common centralized configuration.
 
 Contents:
 
 .. toctree::
     :maxdepth: 2
 
-    install-guide
+    install
+    config
 
 Indices and tables
 ==================
