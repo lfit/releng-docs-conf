@@ -1,12 +1,10 @@
 """
 Setup for Docs Configuration
 """
-__author__ = 'Linux Foundation Releng'
-__summary__ = 'Linux Foundation DocsConf'
-__version__ = '0.2.0-dev'
-
-
 from setuptools import setup, find_packages
+
+from docs_conf import __author__
+from docs_conf import __version__
 
 
 with open('requirements.txt') as f:

@@ -11,12 +11,12 @@
 ##############################################################################
 
 import os
-import pkg_resources
 import sys
 # Sys.path for RTD to resolve docs_conf package
 sys.path.insert(0, os.path.abspath('..'))
 
-from docs_conf import *
+from docs_conf import __version__
+from docs_conf.conf import *
 
-version=pkg_resources.require("lfdocs-conf")[0].version
-release=version
+version=__version__
+release=__version__
