@@ -6,6 +6,10 @@ ignore = .tox/**,
     .gitmodules,
     node_modules/**
 
+[all.Documentation]
+bears = WriteGoodLintBear
+files = docs/**.rst
+
 [all.Git]
 bears = GitCommitBear
 ignore_length_regex = Signed-off-by,
