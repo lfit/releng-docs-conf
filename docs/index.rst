@@ -13,7 +13,7 @@ Contents:
 .. toctree::
     :maxdepth: 2
 
-    install-guide
+    install
 
 Indices and tables
 ==================
