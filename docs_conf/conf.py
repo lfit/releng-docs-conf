@@ -103,7 +103,9 @@ html_theme_path = cfg.get('html_theme_path', sphinx_bootstrap_theme.get_html_the
 htmlhelp_basename = cfg.get('htmlhelp_basename', 'DocsConf')
 
 intersphinx_mapping = {
-    'global-jjb': ('http://global-jjb.releng.linuxfoundation.org/en/latest/', None),
-    'lftools': ('http://lftools.releng.linuxfoundation.org/en/latest/', None),
+    'global-jjb': ('http://docs.releng.linuxfoundation.org/projects/global-jjb/en/latest/', None),
+    'lfdocs': ('http://docs.releng.linuxfoundation.org/en/latest/', None),
+    'lfdocs-conf': ('http://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/latest/', None),
+    'lftools': ('http://docs.releng.linuxfoundation.org/projects/lftools/en/latest/', None),
     'python': ('https://docs.python.org/', None),
 }
