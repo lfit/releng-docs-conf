@@ -24,7 +24,7 @@ def config(tmpdir):
     """
     # Create the base 'conf.py'
     confpy = tmpdir.join('conf.py')
-    confpy.write("from docs_conf import *")
+    confpy.write("from docs_conf.conf import *")
 
     # Create conf.cfg file with test defaults
     # TODO: Make this dynamic so each test can set their own conf.cfg
