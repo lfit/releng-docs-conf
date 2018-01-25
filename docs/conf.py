@@ -10,7 +10,10 @@
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
 
+import os
 import pkg_resources
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 
 from docs_conf import *
 
