@@ -21,8 +21,8 @@ Configuration precedence for configuration is as follows:
 
 #. project/conf.py
 #. project/conf.yaml
-#. docs_conf/{project_cfg}.yaml
-#. docs_conf/default.yaml
+#. docs_conf/defaults/{project_cfg}.yaml
+#. docs_conf/defaults/default.yaml
 #. docs_conf/__init__.py
 
 conf.py structure and documentation:
