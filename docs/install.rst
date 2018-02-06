@@ -5,7 +5,7 @@ Install Guide
 
 Follow these steps to install lfdocs-conf:
 
-#. Add lfdocs-conf to your requirements.txt
+#. Add ``lfdocs-conf`` to your requirements.txt
 #. Create the docs directory in the root of your repo
 #. Create docs/conf.py with the following contents::
 
@@ -70,6 +70,29 @@ Follow these steps to install lfdocs-conf:
       The logo should be a small 64x64 png image.
 
 #. (Optional) Copy a favicon to docs/_static/favicon.ico
+#. Create a tox.ini with the following contents::
+
+     [tox]
+     minversion = 1.6
+     envlist =
+         docs
+         docs-linkcheck
+
+     [testenv:docs]
+     deps = -rrequirements.txt
+     commands =
+         sphinx-build -b html -n -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/html
+         echo "Generated docs available in {toxinidir}/docs/_build/html"
+     whitelist_externals = echo
+
+     [testenv:docs-linkcheck]
+         deps = -rrequirements.txt
+         commands = sphinx-build -b linkcheck -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/linkcheck
+
+   This will configure 2 tox testenvs. The first to generate the docs and the
+   2nd to verify links inside of the documentation. The 2nd one is useful to
+   ensure the documentation does not contain any broken links.
+
 #. To test run::
 
      tox -e docs
