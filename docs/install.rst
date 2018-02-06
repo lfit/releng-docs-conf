@@ -70,3 +70,12 @@ Follow these steps to install lfdocs-conf:
       The logo should be a small 64x64 png image.
 
 #. (Optional) Copy a favicon to docs/_static/favicon.ico
+#. To test run::
+
+       tox -e docs
+       google-chrome-stable docs/_build/html/index.html
+
+   .. note::
+
+      Replace the last command with your favourite web browser to view a
+      the generated docs.
