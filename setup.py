@@ -17,7 +17,7 @@ setup(
     version=__version__,
     author=__author__,
     author_email="releng@linuxfoundation.org",
-    url="https://gerrit.linuxfoundation.org/docs-conf",
+    url="https://gerrit.linuxfoundation.org/infra/#/q/project:releng/docs-conf",
     package_data={
         'docs_conf': ['defaults/*']
     },
