@@ -89,10 +89,10 @@ templates_path = cfg.get('templates_path', ['_templates'])
 todo_include_todos = cfg.get('todo_include_todos', False)
 
 html_extra_path = cfg.get('html_extra_path', [])
-html_favicon = cfg.get('html_favicon', 'favicon.ico')
-html_logo = cfg.get('html_logo', '_static/logo.png')
+html_favicon = cfg.get('html_favicon', None)
+html_logo = cfg.get('html_logo', None)
 html_sidebars = cfg.get('html_sidebars', {'**': ['localtoc.html', 'relations.html'], })
-html_static_path = cfg.get('html_static_path', ['_static'])
+html_static_path = cfg.get('html_static_path', [])
 html_theme = cfg.get('html_theme', 'bootstrap')
 html_theme_options = cfg.get('html_theme_options', {
     'bootswatch_theme': "cerulean",
