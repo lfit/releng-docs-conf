@@ -73,8 +73,8 @@ cfg = collect_project_and_config()
 
 # Parse the config and pull in sphinx conf.py settings
 project = cfg.get('project')
-release = cfg.get('release')
 version = cfg.get('version')
+release = cfg.get('release', version)
 author = cfg.get('author')
 copyright = cfg.get('copyright')
 
