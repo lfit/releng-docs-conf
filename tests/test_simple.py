@@ -12,44 +12,34 @@
 """
 Docs Conf Tests
 """
-import importlib
-import os
 import pytest
-import sys
 
-@pytest.fixture()
-def config(tmpdir):
-    """
-    Create a basic conf.py and conf.cfg file for each test
-    """
-    # Create the base 'conf.py'
-    confpy = tmpdir.join('conf.py')
-    confpy.write("from docs_conf.conf import *")
+conf_yaml = """
+---
+project: myproject
+author: Pythonista
+"""
 
-    # Create conf.cfg file with test defaults
-    # TODO: Make this dynamic so each test can set their own conf.cfg
-    # config.
-    confcfg = tmpdir.join('conf.yaml')
-    confcfg.write("---\nproject: myproject\nauthor: Pythonista")
+conf_yaml1 = """
+---
+project: mypro
+author: Python
+"""
 
-    # Change to the tmpdir location so relative file lookups succeed
-    os.chdir(str(tmpdir))
-
-    # Import the 'conf.py' file
-    sys.path.append(str(tmpdir))
-    conf_module = importlib.import_module('conf')
-
-    return conf_module
-
-def test_config(config):
+def test_config(confyaml):
     """
     Assert some basic assumption about how configurations are pulled in
     """
+    config = confyaml(conf_yaml)
     assert config.project == 'myproject'
     assert config.author == 'Pythonista'
-    #assert 'latex_documents' in dir(config)
 
-def test_defaults(config):
+    config = confyaml(conf_yaml1)
+    assert config.project == 'mypro'
+    assert config.author == 'Python'
+
+@pytest.mark.skip(reason="Not implemented")
+def test_defaults(confyaml):
     """
     Test the defaults are set and the only thing required is a conf.py
     w/import *
@@ -57,6 +47,7 @@ def test_defaults(config):
     # TODO
     assert True
 
+@pytest.mark.skip(reason="Not implemented")
 def test_project_override(config):
     """
     Test that setting sphinx.project pulls in the project specific
@@ -65,6 +56,7 @@ def test_project_override(config):
     # TODO
     assert True
 
+@pytest.mark.skip(reason="Not implemented")
 def test_theme_import(config):
     """
     Test setting sphinx.html_theme_module imports the correct theme

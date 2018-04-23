@@ -4,29 +4,56 @@ LF Docs Config
 The purpose of this project is to allow LF projects a centralized location for
 storing common project configuration.
 
-To use this a project should create a conf.yaml file in the same
-directory as their conf.py. Conf.py should contain at minimum::
+Though the project is specific to LF projects, it's aim is to
+be general enough for other projects to use as an easy mechanism for
+managing the same Sphinx conf.py file across many repositories.
 
-    from docs_conf import *
+Quick Start
+-----------
 
-The conf.yaml file should contain at minimum::
+First start by installing this project, perferrably in a virtualenv with
+the following command::
+
+    pip install docs-conf
+
+Then at the same location as your Sphinx conf.py file in your docs
+directory, create a conf.yaml file, containing at a minimum::
 
     ---
     project_cfg=myproject
 
-If defaults for 'myproject' exist, they will be loaded from this
-package, otherwise the basic Sphinx defaults will be set.
+The conf.py file should contain at minimum::
 
-Configuration precedence for configuration is as follows:
+    from docs_conf import *
+
+This will enable conf.py to contain (at the runtime of sphinx-build) all
+defaults listed in **docs_conf/defaults/defaults.yaml**. If project
+defaults for 'myproject' exist in this repo
+(**docs_conf/defaults/myproject.yaml**), they will be loaded and
+override the base defaults. Otherwise the basic Sphinx defaults will be
+set.
+
+Configuration Inheritance
+-------------------------
+
+Because of the way this project is structured, Sphinx defaults are all
+inherited from the following sources and merged, with those at the top
+of the list taking precedence over those lower down:
 
 #. project/conf.py
 #. project/conf.yaml
 #. docs_conf/defaults/{project_cfg}.yaml
 #. docs_conf/defaults/default.yaml
-#. docs_conf/__init__.py
+#. docs_conf/conf.py
 
-conf.py structure and documentation:
-  http://www.sphinx-doc.org/en/stable/config.html
+The full list of Sphinx configuration settings and their types can be
+found here: http://www.sphinx-doc.org/en/stable/config.html
+
+Contributing
+------------
+
+Testing
+~~~~~~~
 
 TODO
 ----
