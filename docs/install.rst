@@ -85,17 +85,26 @@ Follow these steps to install lfdocs-conf:
      [testenv:docs]
      deps = -rrequirements.txt
      commands =
-         sphinx-build -b html -n -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/html
+         sphinx-build -W -b html -n -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/html
          echo "Generated docs available in {toxinidir}/docs/_build/html"
      whitelist_externals = echo
 
      [testenv:docs-linkcheck]
          deps = -rrequirements.txt
-         commands = sphinx-build -b linkcheck -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/linkcheck
+         commands = sphinx-build -W -b linkcheck -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/linkcheck
 
    This will configure 2 tox testenvs. The first to generate the docs and the
    2nd to verify links inside of the documentation. The 2nd one is useful to
    ensure the documentation does not contain any broken links.
+
+   .. note::
+
+      The ``-W`` flag enables an option to fail the build even on warnings.
+      This flag catches useful issues with docs and projects should strive
+      to have their docs passing with this enabled. If setting up an existing
+      project that has warnings that are unable to resolve now then
+      remove this option temporarily, until such a time that the project can
+      clean up the docs.
 
 #. To test run::
 
