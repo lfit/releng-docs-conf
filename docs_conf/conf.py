@@ -107,10 +107,10 @@ else:
 htmlhelp_basename = cfg.get('htmlhelp_basename', 'DocsConf')
 
 intersphinx_mapping = {
-    'common-packer': ('http://docs.releng.linuxfoundation.org/projects/common-packer/en/latest/', None),
-    'global-jjb': ('http://docs.releng.linuxfoundation.org/projects/global-jjb/en/latest/', None),
-    'lfdocs': ('http://docs.releng.linuxfoundation.org/en/latest/', None),
-    'lfdocs-conf': ('http://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/latest/', None),
-    'lftools': ('http://docs.releng.linuxfoundation.org/projects/lftools/en/latest/', None),
+    'common-packer': ('https://docs.releng.linuxfoundation.org/projects/common-packer/en/latest/', None),
+    'global-jjb': ('https://docs.releng.linuxfoundation.org/projects/global-jjb/en/latest/', None),
+    'lfdocs': ('https://docs.releng.linuxfoundation.org/en/latest/', None),
+    'lfdocs-conf': ('https://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/latest/', None),
+    'lftools': ('https://docs.releng.linuxfoundation.org/projects/lftools/en/latest/', None),
     'python': ('https://docs.python.org/', None),
 }
