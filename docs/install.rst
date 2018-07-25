@@ -86,8 +86,6 @@ Follow these steps to install lfdocs-conf:
      deps = -rrequirements.txt
      commands =
          sphinx-build -W -b html -n -d {envtmpdir}/doctrees ./docs/ {toxinidir}/docs/_build/html
-         echo "Generated docs available in {toxinidir}/docs/_build/html"
-     whitelist_externals = echo
 
      [testenv:docs-linkcheck]
          deps = -rrequirements.txt
