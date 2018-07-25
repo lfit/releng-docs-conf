@@ -81,6 +81,7 @@ Follow these steps to install lfdocs-conf:
      envlist =
          docs
          docs-linkcheck
+     skipsdist = true
 
      [testenv:docs]
      deps = -rrequirements.txt
