@@ -12,14 +12,7 @@ with open('requirements.txt') as f:
 
 
 setup(
-    name='lfdocs_conf',
-    packages=['docs_conf'],
-    version=__version__,
-    author=__author__,
-    author_email="releng@linuxfoundation.org",
-    url="https://gerrit.linuxfoundation.org/infra/#/q/project:releng/docs-conf",
-    package_data={
-        'docs_conf': ['defaults/*']
-    },
+    setup_requires=['pbr'],
+    pbr=True,
     install_requires=install_reqs
 )
