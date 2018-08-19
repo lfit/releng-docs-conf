@@ -10,3 +10,8 @@ dist
 *.egg-info
 *.pyc
 .cache
+
+# PBR
+AUTHORS
+ChangeLog
+
