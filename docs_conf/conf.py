@@ -17,8 +17,9 @@ Configure sphinx-doc through an YAML file.
 import imp
 import os.path
 
-import sphinx_bootstrap_theme
 import yaml
+
+import sphinx_bootstrap_theme
 
 
 def _merge_yaml(x, y):
