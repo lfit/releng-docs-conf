@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4add0478_88cc71f2",
+        "filename": "docs/requirements.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-12T21:18:21Z",
+      "side": 1,
+      "message": "That\u0027s the next patch, although I wonder if we have to combine the 2 patches now. This patch will probably fail verify.",
+      "parentUuid": "b3c3f556_5cbc5718",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "76ac5d4bbd96da28624b96110b98a5447aebbf42",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f63410aa_deabccbd",
         "filename": "tox.ini",
         "patchSetId": 1
