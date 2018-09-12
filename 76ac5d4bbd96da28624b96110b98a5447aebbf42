@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3c3f556_5cbc5718",
+        "filename": "docs/requirements.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-09-12T21:16:03Z",
+      "side": 1,
+      "message": "No longer keeping this \u003c 1.8.0?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "76ac5d4bbd96da28624b96110b98a5447aebbf42",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63410aa_deabccbd",
+        "filename": "tox.ini",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-09-12T21:16:03Z",
+      "side": 1,
+      "message": "docs/requirements.txt",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "76ac5d4bbd96da28624b96110b98a5447aebbf42",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
