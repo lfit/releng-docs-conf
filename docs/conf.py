@@ -15,8 +15,9 @@ import sys
 # Sys.path for RTD to resolve docs_conf package
 sys.path.insert(0, os.path.abspath('..'))
 
-from docs_conf import __version__
+from pbr.version import VersionInfo
+
 from docs_conf.conf import *
 
-version=__version__
-release=__version__
+version=str(VersionInfo('lfdocs-conf'))
+release=str(VersionInfo('lfdocs-conf'))
