@@ -18,5 +18,7 @@ sys.path.insert(0, os.path.abspath('..'))
 from docs_conf import __version__
 from docs_conf.conf import *
 
+extensions.append('reno.sphinxext')
+
 version=__version__
 release=__version__
