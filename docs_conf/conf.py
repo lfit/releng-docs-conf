@@ -112,5 +112,5 @@ intersphinx_mapping = {
     'lfdocs': ('https://docs.releng.linuxfoundation.org/en/latest/', None),
     'lfdocs-conf': ('https://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/latest/', None),
     'lftools': ('https://docs.releng.linuxfoundation.org/projects/lftools/en/latest/', None),
-    'python': ('https://docs.python.org/', None),
+    'python': ('https://docs.python.org/3/objects.inv', None),
 }
