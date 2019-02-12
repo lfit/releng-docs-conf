@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2dfe38f_d64a21c0",
+        "filename": "requirements.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-02-12T20:51:10Z",
+      "side": 1,
+      "message": "Can you add a comment here to say that we\u0027re pinning this due to breakage in 6.0.0.\n\nI like to have this kind of comment for dependencies we don\u0027t directly need so that we know why it\u0027s being pulled in.",
+      "revId": "0c19aa2643aa69f985b8cdb797873581f810d71a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
