@@ -1,3 +1,4 @@
+more-itertools~=5.0.0
 pytest
 pyyaml
 Sphinx~=1.7.9
