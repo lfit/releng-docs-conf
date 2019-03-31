@@ -21,7 +21,7 @@ files = docs_conf/**.py
 known_first_party_imports = lftools
 known_third_party_imports = pytest, six, sphinx_bootstrap_theme
 pydocstyle_ignore = D203, D213, D301
-max_line_length = 120
+max_line_length = 88
 
 [all.YAML]
 bears = YAMLLintBear
