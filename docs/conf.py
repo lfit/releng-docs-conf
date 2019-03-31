@@ -12,17 +12,18 @@
 
 import os
 import sys
+
 # Sys.path for RTD to resolve docs_conf package
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath(".."))
 
 from pbr.version import VersionInfo
 
 from docs_conf.conf import *
 
-version=str(VersionInfo('lfdocs-conf'))
-release=str(VersionInfo('lfdocs-conf'))
+version = str(VersionInfo("lfdocs-conf"))
+release = str(VersionInfo("lfdocs-conf"))
 
 linkcheck_ignore = [
     # The '#' in the path makes sphinx think it's an anchor
-    'https://gerrit.linuxfoundation.org/infra/#/admin/projects/releng/docs-conf',
+    "https://gerrit.linuxfoundation.org/infra/#/admin/projects/releng/docs-conf"
 ]
