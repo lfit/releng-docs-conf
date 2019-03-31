@@ -10,14 +10,6 @@ ignore = .tox/**,
 bears = WriteGoodLintBear
 files = docs/**.rst
 
-[all.Git]
-bears = GitCommitBear
-ignore_length_regex = Signed-off-by,
-    Also-by,
-    Co-authored-by,
-    http://,
-    https://
-
 [all.Python]
 bears = BanditBear,
     PEP8Bear,
