@@ -21,3 +21,8 @@ from docs_conf.conf import *
 
 version=str(VersionInfo('lfdocs-conf'))
 release=str(VersionInfo('lfdocs-conf'))
+
+linkcheck_ignore = [
+    # The '#' in the path makes sphinx think it's an anchor
+    'https://gerrit.linuxfoundation.org/infra/#/admin/projects/releng/docs-conf',
+]

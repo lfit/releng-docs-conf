@@ -55,10 +55,10 @@ Follow these steps to install lfdocs-conf:
    project.
 
    The first line ".. _my-project:" is a special Sphinx `cross-ref
-   <http://www.sphinx-doc.org/en/stable/markup/inline.html#ref-role>`_ which
-   is useful to allow other projects to link to arbitrary locations in your
-   project. Create these for every section heading in your project to ensure
-   that others can link to your project.
+   <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#ref-role>`_
+   which is useful to allow other projects to link to arbitrary locations in
+   your project. Create these for every section heading in your project to
+   ensure that others can link to your project.
 
    .. note::
 
