@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9b9a9bc_d88f6225",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-04-10T04:08:33Z",
+      "side": 1,
+      "message": "Will just running tox take care of making sure check-hooks is installed? I think I saw that happen on one of the repos when I did a local tox and I hadn\u0027t installed the pre-commit hook.",
+      "revId": "28624b81c7bc58a896c8984c06715104542a2950",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
