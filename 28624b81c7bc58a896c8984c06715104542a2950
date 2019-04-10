@@ -16,6 +16,24 @@
       "revId": "28624b81c7bc58a896c8984c06715104542a2950",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69a70667_0e5a3379",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-04-10T05:29:44Z",
+      "side": 1,
+      "message": "Yes check hooks installs pre-commit via pip and then runs the hook check. Subsequent runs should happen automatically once this is run once.\n\nI\u0027m tempted to rename this to `tox -e pre-commit` so that it\u0027s more obvious.",
+      "parentUuid": "f9b9a9bc_d88f6225",
+      "revId": "28624b81c7bc58a896c8984c06715104542a2950",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
