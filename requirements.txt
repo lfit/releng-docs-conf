@@ -1,7 +1,7 @@
 pytest
 pyyaml
-Sphinx~=2.2.2
-sphinx_bootstrap_theme>=0.6.2
+Sphinx~=2.3.1
+sphinx_bootstrap_theme~=0.7.1
 
 # Indirect Dependencies
 # >6.0.0 requires Python >=3.4
