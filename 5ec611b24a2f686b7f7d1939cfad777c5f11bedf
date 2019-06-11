@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd00a857_34984eb8",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2019-06-11T20:03:16Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "5ec611b24a2f686b7f7d1939cfad777c5f11bedf",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
