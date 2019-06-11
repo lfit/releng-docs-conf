@@ -1,0 +1,34 @@
+---
+project: onap
+release: master
+version: master
+author: Open Network Automation Platform
+copyright: 2019, ONAP. Licensed under Creative Commons Attribution 4.0 International License
+
+needs_sphinx: '1.6.5'
+extensions:
+  - sphinxcontrib.blockdiag
+  - sphinxcontrib.needs
+  - sphinxcontrib.nwdiag
+  - sphinxcontrib.plantuml
+  - sphinxcontrib.seqdiag
+  - sphinxcontrib.swaggerdoc
+  - sphinx.ext.autodoc
+  - sphinx.ext.coverage
+  - sphinx.ext.doctest
+  - sphinx.ext.graphviz
+  - sphinx.ext.ifconfig
+  - sphinx.ext.imgmath
+  - sphinx.ext.intersphinx
+  - sphinx.ext.todo
+  - sphinx.ext.viewcode
+todo_include_todos: false
+
+html_theme: bootstrap
+html_theme_options:
+  bootswatch_theme: lumen
+  navbar_sidebarrel: false
+html_logo: _static/logo_onap_2017.png
+html_favicon: _static/favicon.ico
+html_static_path:
+  - _static
