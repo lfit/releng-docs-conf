@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "848e9288_01d788e5",
+        "filename": "docs_conf/defaults/oran.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 114
+      },
+      "writtenOn": "2019-09-23T23:07:20Z",
+      "side": 1,
+      "message": "this project began at LF in 2019, so not quite sure 2016 is appropriate",
+      "range": {
+        "startLine": 6,
+        "startChar": 11,
+        "endLine": 6,
+        "endChar": 15
+      },
+      "revId": "113b52cab4c0d576ec6e6b0982af5af3c53ffc95",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
