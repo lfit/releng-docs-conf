@@ -1,0 +1,8 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Aric Gardner <agardner@linuxfoundation.org>
+Code-Review+2: Trevor Bramwell <tbramwell@linuxfoundation.org>
+Submitted-by: Trevor Bramwell <tbramwell@linuxfoundation.org>
+Submitted-at: Tue, 28 Jan 2020 22:11:49 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/62960
+Project: releng/docs-conf
+Branch: refs/heads/master
