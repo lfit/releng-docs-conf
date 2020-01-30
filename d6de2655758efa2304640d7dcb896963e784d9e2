@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2b532f2_a67ddb43",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 373
+      },
+      "writtenOn": "2020-01-30T09:53:04Z",
+      "side": 1,
+      "message": "Hi, \nwhy are here 2 times \"_build\" in the exclude_patterns ?\nBest regards\nAndreas",
+      "revId": "d6de2655758efa2304640d7dcb896963e784d9e2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
