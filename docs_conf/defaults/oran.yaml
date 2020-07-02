@@ -24,8 +24,7 @@ html_favicon: favicon.ico
 html_logo: _static/logo.png
 html_static_path:
   - _static
-html_theme: bootstrap
+html_theme: sphinx_rtd_theme
 html_theme_options:
-  bootswatch_theme: united
-  navbar_sidebarrel: false
-  source_link_position: footer
+  style_nav_header_background: 'white'
+  sticky_navigation: 'False'
