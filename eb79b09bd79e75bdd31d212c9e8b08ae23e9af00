@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9877e306_be5493ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 12
+      },
+      "writtenOn": "2020-07-02T20:59:31Z",
+      "side": 1,
+      "message": "Okay for some reason the gerrit link can not put the customer facing link.. that\u0027s annoying..",
+      "parentUuid": "bd13af87_586dab70",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "eb79b09bd79e75bdd31d212c9e8b08ae23e9af00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d3a263d_bce8db17",
         "filename": "docs_conf/defaults/oran.yaml",
         "patchSetId": 1
