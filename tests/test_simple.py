@@ -9,9 +9,7 @@
 # which accompanies this distribution, and is available at
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
-"""
-Docs Conf Tests
-"""
+"""Docs Conf Tests."""
 import importlib
 import os
 import pytest
@@ -20,9 +18,7 @@ import sys
 
 @pytest.fixture()
 def config(tmpdir):
-    """
-    Create a basic conf.py and conf.cfg file for each test
-    """
+    """Create a basic conf.py and conf.cfg file for each test."""
     # Create the base 'conf.py'
     confpy = tmpdir.join("conf.py")
     confpy.write("from docs_conf.conf import *")
@@ -44,35 +40,25 @@ def config(tmpdir):
 
 
 def test_config(config):
-    """
-    Assert some basic assumption about how configurations are pulled in
-    """
+    """Assert some basic assumption about how configurations are pulled in."""
     assert config.project == "myproject"
     assert config.author == "Pythonista"
     # assert 'latex_documents' in dir(config)
 
 
 def test_defaults(config):
-    """
-    Test the defaults are set and the only thing required is a conf.py
-    w/import *
-    """
+    """Test the defaults are set and the only thing required is a conf.py w/import *."""
     # TODO
     assert True
 
 
 def test_project_override(config):
-    """
-    Test that setting sphinx.project pulls in the project specific
-    defaults
-    """
+    """Test that setting sphinx.project pulls in the project specific defaults."""
     # TODO
     assert True
 
 
 def test_theme_import(config):
-    """
-    Test setting sphinx.html_theme_module imports the correct theme
-    """
+    """Test setting sphinx.html_theme_module imports the correct theme."""
     # TODO
     pass

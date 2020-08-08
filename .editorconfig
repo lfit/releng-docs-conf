@@ -15,4 +15,3 @@ max_line_legth = 88
 
 [*.yaml]
 indent_size = 4
-

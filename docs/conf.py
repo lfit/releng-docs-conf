@@ -9,6 +9,7 @@
 # which accompanies this distribution, and is available at
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
+"""Configuration for Sphinx."""
 
 import os
 import sys
@@ -16,9 +17,9 @@ import sys
 # Sys.path for RTD to resolve docs_conf package
 sys.path.insert(0, os.path.abspath(".."))
 
-from pbr.version import VersionInfo
+from pbr.version import VersionInfo  # noqa
 
-from docs_conf.conf import *
+from docs_conf.conf import *  # noqa
 
 version = str(VersionInfo("lfdocs-conf"))
 release = str(VersionInfo("lfdocs-conf"))

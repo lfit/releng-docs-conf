@@ -1,7 +1,5 @@
-"""
-Setup for Docs Configuration
-"""
-from setuptools import setup, find_packages
+"""Setup for Docs Configuration."""
+from setuptools import setup
 
 
 with open("requirements.txt") as f:
