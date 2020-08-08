@@ -5,7 +5,7 @@ version: master
 author: Linux Foundation Releng
 copyright: 2017-2018, The Linux Foundation
 
-needs_sphinx: '1.6.5'
+needs_sphinx: "1.6.5"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest

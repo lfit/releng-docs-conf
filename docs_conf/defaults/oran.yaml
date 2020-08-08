@@ -5,7 +5,7 @@ version: master
 author: O-RAN Project
 copyright: 2019, O-RAN Project
 
-needs_sphinx: '1.6.5'
+needs_sphinx: "1.6.5"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest
@@ -26,5 +26,5 @@ html_static_path:
   - _static
 html_theme: sphinx_rtd_theme
 html_theme_options:
-  style_nav_header_background: 'white'
-  sticky_navigation: 'False'
+  style_nav_header_background: "white"
+  sticky_navigation: "False"

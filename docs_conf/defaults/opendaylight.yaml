@@ -5,7 +5,7 @@ version: master
 author: OpenDaylight Project
 copyright: 2016-2018, OpenDaylight Project
 
-needs_sphinx: '1.6.5'
+needs_sphinx: "1.6.5"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest

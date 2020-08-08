@@ -9,9 +9,3 @@ ignore = .tox/**,
 [all.Documentation]
 bears = WriteGoodLintBear
 files = docs/**.rst
-
-[all.YAML]
-bears = YAMLLintBear
-files = docs_conf/**.yaml
-document_start = True
-yamllint_config = yamllint.conf

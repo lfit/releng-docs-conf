@@ -6,7 +6,7 @@ version: 1.2.3
 author: OpenDaylight Project
 copyright: 2018, OpenDaylight Project a Series of LF Projects, LLC
 
-needs_sphinx: '1.6.5'
+needs_sphinx: "1.6.5"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest
