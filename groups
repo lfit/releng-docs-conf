@@ -2,4 +2,3 @@
 #
 6cf3f6caaea5e09cdc80d0266af08c0ac821fdc9                                            	saml/lf-gerrit-releng-docs-conf-committers
 d68d00a2419f8ff627fc120cf9dd9055ae422153                                            	GitHub Replication
-ldap:cn=lfinfra-gerrit-releng-docs-conf-committers,ou=Groups,dc=freestandards,dc=org	ldap/lfinfra-gerrit-releng-docs-conf-committers
