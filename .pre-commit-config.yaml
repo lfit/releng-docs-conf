@@ -13,8 +13,8 @@ repos:
     hooks:
       - id: gitlint
 
-  - repo: https://github.com/prettier/prettier
-    rev: 2.0.5
+  - repo: https://github.com/prettier/pre-commit
+    rev: v2.1.2
     hooks:
       - id: prettier
 
@@ -46,13 +46,7 @@ repos:
     hooks:
       - id: yamllint
 
-  - repo: local
+  - repo: https://github.com/btford/write-good
+    rev: v1.0.4
     hooks:
-      # TODO: Switch to upstream hook when https://github.com/btford/write-good/pull/119 is merged.
       - id: write-good
-        name: write-good
-        description: Check docs for English prose with write-good
-        entry: write-good
-        language: node
-        files: "\\.(rst|md|markdown|mdown|mkdn)$"
-        additional_dependencies: ["write-good"]
