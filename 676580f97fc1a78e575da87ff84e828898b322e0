@@ -39,6 +39,30 @@
       },
       "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97ef8974_bb1312df",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-10T19:14:21Z",
+      "side": 1,
+      "message": "Up to now, ONAP used a single year.\nI let Thomas confirm it is OK.",
+      "parentUuid": "74e22bf6_0adf907b",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
