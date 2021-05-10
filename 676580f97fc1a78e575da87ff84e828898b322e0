@@ -16,6 +16,29 @@
       "message": "great! and good to know where it has to be changed.",
       "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74e22bf6_0adf907b",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-10T17:17:03Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a date range and not a single year?",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
