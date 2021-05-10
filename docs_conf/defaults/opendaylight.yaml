@@ -3,7 +3,7 @@ project: OpenDaylight
 release: master
 version: master
 author: OpenDaylight Project
-copyright: 2016-2018, OpenDaylight Project
+copyright: 2016-2021, OpenDaylight Project
 
 needs_sphinx: "1.6.5"
 extensions:
