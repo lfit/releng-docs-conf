@@ -63,6 +63,30 @@
       },
       "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0422db21_2870f6f7",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-12T17:15:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "97ef8974_bb1312df",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 16
+      },
+      "revId": "676580f97fc1a78e575da87ff84e828898b322e0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
