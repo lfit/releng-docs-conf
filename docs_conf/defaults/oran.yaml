@@ -3,7 +3,7 @@ project: ORAN
 release: master
 version: master
 author: O-RAN Project
-copyright: 2019, O-RAN Project
+copyright: {}, O-RAN Project
 
 needs_sphinx: "1.6.5"
 extensions:

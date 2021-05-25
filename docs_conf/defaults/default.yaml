@@ -3,7 +3,7 @@ project: DEFAULT_PROJECT
 release: master
 version: master
 author: DEFAULT_AUTHOR
-copyright: 2018, DEFAULT_PROJECT
+copyright: {}, DEFAULT_PROJECT
 
 needs_sphinx: "1.6.5"
 extensions:
