@@ -16,6 +16,23 @@
       "message": "Before publishing a new version of docsconf in Pypi, I think it i worth to try to automate things a little more.",
       "revId": "edfac1c8bb1d22fdb52a0c66d2342dc8aa67fa2b",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfe45e93_5cad41a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 568
+      },
+      "writtenOn": "2021-05-25T20:33:18Z",
+      "side": 1,
+      "message": "Good proposal",
+      "revId": "edfac1c8bb1d22fdb52a0c66d2342dc8aa67fa2b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
