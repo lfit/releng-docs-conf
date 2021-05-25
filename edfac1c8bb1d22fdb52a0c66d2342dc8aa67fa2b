@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ff3819_db19b80a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-25T20:28:25Z",
+      "side": 1,
+      "message": "Before publishing a new version of docsconf in Pypi, I think it i worth to try to automate things a little more.",
+      "revId": "edfac1c8bb1d22fdb52a0c66d2342dc8aa67fa2b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
