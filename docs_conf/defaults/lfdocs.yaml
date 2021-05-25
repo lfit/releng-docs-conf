@@ -3,7 +3,7 @@ project: lf-releng-docs
 release: master
 version: master
 author: Linux Foundation Releng
-copyright: 2017-2018, The Linux Foundation
+copyright: "2017-{}, The Linux Foundation"
 
 needs_sphinx: "1.6.5"
 extensions:

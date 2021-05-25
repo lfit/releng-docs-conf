@@ -14,6 +14,7 @@
 Configure sphinx-doc through an YAML file.
 """
 
+import datetime
 import imp
 import os.path
 
@@ -78,7 +79,7 @@ project = cfg.get("project")
 version = cfg.get("version")
 release = cfg.get("release", version)
 author = cfg.get("author")
-copyright = cfg.get("copyright")
+copyright = cfg.get("copyright").format(datetime.datetime.now().year)
 
 needs_sphinx = cfg.get("needs_sphinx", "1.0")
 exclude_patterns = cfg.get("exclude_patterns", [])
