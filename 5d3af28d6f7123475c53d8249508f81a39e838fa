@@ -33,6 +33,23 @@
       "message": "recheck",
       "revId": "5d3af28d6f7123475c53d8249508f81a39e838fa",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fadd3d35_90ff1250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T13:52:50Z",
+      "side": 1,
+      "message": "I fixed the missing quote that are required by the pre-commit yaml linter \"prettier\".\nIt\u0027s apparently not needed to work.\n\nI have noticed a couple of issues with the gate such as obsolete py27 tox profile and also when running gitlint pre-commit locally. It does not work well  returns a 254 error code.\n\nI\u0027ll try to address some of them later.",
+      "revId": "5d3af28d6f7123475c53d8249508f81a39e838fa",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
