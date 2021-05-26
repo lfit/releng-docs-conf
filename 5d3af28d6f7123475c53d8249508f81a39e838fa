@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662c5981_4c4de3db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T13:32:34Z",
+      "side": 1,
+      "message": "\n15:28:12     ConnectionResetError: [Errno 104] Connection reset by peer",
+      "revId": "5d3af28d6f7123475c53d8249508f81a39e838fa",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
