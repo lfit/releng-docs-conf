@@ -33,6 +33,23 @@
       "message": "Good proposal",
       "revId": "edfac1c8bb1d22fdb52a0c66d2342dc8aa67fa2b",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "437effc8_a1974a6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2021-05-26T02:52:12Z",
+      "side": 1,
+      "message": "I think this is a good proposal. We can definitely automate the copyright date so that folks don\u0027t have to remember to update it.\n\nI\u0027m not sure if there\u0027s a standard or anything for the copyright year but I usually follow the recommendation by Eclipse:\n\n\"\"\"{DATE} is either a year or a range of years with the first and last years of the range separated by a comma. So for example: \"2004\" or \"2000, 2004\". The first year is when the contents of the file were first created and the last year is the last year is when the contents were last modified.\"\"\"\n\nReference: https://www.eclipse.org/legal/cpl2epl/cpl_copyrightandlicensenotice.php\n\nWith that in mind do we maybe want to set the first date for each project to be the year that the project was first created?\n\nThen we could have the 2nd date be the automated update via the datetime function.\n",
+      "revId": "edfac1c8bb1d22fdb52a0c66d2342dc8aa67fa2b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
