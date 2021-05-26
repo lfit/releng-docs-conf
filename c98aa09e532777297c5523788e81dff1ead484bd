@@ -52,6 +52,41 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2feb2a_6ce67e92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T21:25:26Z",
+      "side": 1,
+      "message": "\u003e So, you\u0027re getting past one part of getting gitlint to run, but it\u0027s not actually functioning correctly. Since the point of your change here is to get it working please see the comments in the change.\n\nI am not trying to fix the gitling config nor the CI here but only having the pre-commit tox profile return a success locally on my station after recloning the repo from scratch.\n\nWhen it is run once, this pre-commit tox profile installs git hooks locally that are performed after each git commit if the -n option is not passed.\nThis can be quite usefull but also very annoying since in case of failure the commit message content is lost. And it seems to fail each time with the current configuration if you look at the next change in the relation chain.\n\nThis is a first step to have pre-commit git hooks to behave more correctly in a local environment.",
+      "parentUuid": "73036d2f_1a8d182f",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd94bc00_31ea306b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T21:25:26Z",
+      "side": 1,
+      "message": "\nI suspect we do not observe the same behavior locally with our configurations.",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e5843d4_c09a66ae",
@@ -71,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dc54585_f75375f7",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T21:25:26Z",
+      "side": 1,
+      "message": "It was added simultaneously with the large block you mentioned below.\nIf so, I don\u0027t understand why it should not bring side-effects at\nhttps://github.com/lfit/releng-global-jjb/blob/master/tox.ini#L59 too.\n\nI do not want to try to fix the CI here but only a local call to the \npre-commit tox profile.\nI cannot get it working and return a success on my station without this passenv.\nDid you notice any side-effects on your station with that passenv parameter?\n\nMy opinion is that the side-effects probably come more from the command\n\"pre-commit install --hook-type commit-msg\" that installs git-hook locally even when run in the virtualenv.",
+      "parentUuid": "6e5843d4_c09a66ae",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0076ca92_72000f92",
         "filename": "tox.ini",
         "patchSetId": 2
@@ -82,6 +135,24 @@
       "writtenOn": "2021-05-26T20:23:15Z",
       "side": 1,
       "message": "This line needs to be replaced by a very large block to make it actually work correctly. See https://github.com/lfit/releng-global-jjb/blob/master/tox.ini#L62-L78\n\nI\u0027ll note that the log ... | tail .. | cut call can actually be replaced with \u0027git log -1 --pretty\u003d%B\u0027 (I didn\u0027t know that particular quick bit until just a day or so ago!)",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "742660ba_acfe3e3b",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T21:25:26Z",
+      "side": 1,
+      "message": "It seems to use the same passenv.\nSee https://github.com/lfit/releng-global-jjb/blob/master/tox.ini#L59\nand comments above.\nAlso it removes \"pre-commit install --hook-type commit-msg\" that was installing local git hooks. If these hooks are no more installed because of issues locally, I do not understand the benefit of using pre-commit rather than a regular call to gitlint and prettier and yamlint, etc directly from tox.\n\n\nYes I find the \u0027git log -1 --pretty\u003d%B\u0027 choice more elegant too.",
+      "parentUuid": "0076ca92_72000f92",
       "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
