@@ -33,6 +33,57 @@
       "message": "recheck",
       "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73036d2f_1a8d182f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-26T20:23:15Z",
+      "side": 1,
+      "message": "So, you\u0027re getting past one part of getting gitlint to run, but it\u0027s not actually functioning correctly. Since the point of your change here is to get it working please see the comments in the change.",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5843d4_c09a66ae",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-26T20:23:15Z",
+      "side": 1,
+      "message": "This line is not actually useful in CI. It really only creates a side-effect on in a dev environment. Please remove it.",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0076ca92_72000f92",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-26T20:23:15Z",
+      "side": 1,
+      "message": "This line needs to be replaced by a very large block to make it actually work correctly. See https://github.com/lfit/releng-global-jjb/blob/master/tox.ini#L62-L78\n\nI\u0027ll note that the log ... | tail .. | cut call can actually be replaced with \u0027git log -1 --pretty\u003d%B\u0027 (I didn\u0027t know that particular quick bit until just a day or so ago!)",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
