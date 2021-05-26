@@ -87,6 +87,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2f202b_a541386f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T21:30:23Z",
+      "side": 1,
+      "message": "I reversed the orders of the changes.\nSo by next change, I meant https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/67819/4",
+      "parentUuid": "4c2feb2a_6ce67e92",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e5843d4_c09a66ae",
