@@ -16,6 +16,23 @@
       "message": "\n15:28:12     ConnectionResetError: [Errno 104] Connection reset by peer",
       "revId": "5d3af28d6f7123475c53d8249508f81a39e838fa",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "468f376d_c607c86b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-26T13:32:40Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "5d3af28d6f7123475c53d8249508f81a39e838fa",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
