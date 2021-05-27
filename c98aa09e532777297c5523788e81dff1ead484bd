@@ -160,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fab73000_a15b7ba8",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-27T22:02:02Z",
+      "side": 1,
+      "message": "My request to remove is actually specific to the pre-commit install line. Adding passenv is fine. You\u0027ll note that this comment was against line 34, not line 32 where you added pessenv.\n\nYes, the passenv is needed. What I\u0027m talking about is that the tox should not side-effect install pre-commit into a devs environment. You may notice from our other projects that this line doesn\u0027t exist as we\u0027ve removed it. It was obviously missed on this repository.",
+      "parentUuid": "2dc54585_f75375f7",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0076ca92_72000f92",
         "filename": "tox.ini",
         "patchSetId": 2
