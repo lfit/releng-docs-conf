@@ -15,7 +15,7 @@ Configure sphinx-doc through an YAML file.
 """
 
 import datetime
-import imp
+import importlib
 import os.path
 
 import sphinx_bootstrap_theme
@@ -53,7 +53,7 @@ def collect_project_and_config():
 
     project_cfg = local_config.get("project_cfg", None)
 
-    _, docs_path, _ = imp.find_module("docs_conf")
+    docs_path = importlib.util.find_spec("docs_conf").submodule_search_locations[0]
 
     default_cfg = os.path.join(docs_path, "defaults", "default.yaml")
     with open(os.path.join(docs_path, default_cfg), "r") as f:
