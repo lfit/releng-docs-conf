@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f004da4_3efebf35",
+        "filename": ".pre-commit-config.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-27T22:01:44Z",
+      "side": 1,
+      "message": "Set to 21.5b1 (that\u0027s latest current)",
+      "range": {
+        "startLine": 23,
+        "startChar": 14,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095f17aa_f41bc667",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-27T22:01:44Z",
+      "side": 1,
+      "message": "As mentioned in my comments on change I99197f88cf4024a5922fe62ec07610921dcf515f. I don\u0027t like to see these sort of side effects. They can introduce unexpected changes that are unrelated to a change.\n\nWhile prettier and black both do reformatting, all of our formatting is up to date with those tools so reformatting should only be happening on new changes anyway! I don\u0027t like the idea of a tool suddenly updating either durring CI or on a dev machine that introduces changes that are going to fail just because it updated without us knowing about it.\n\nAs such, just set the version properly and don\u0027t do this autoupdate.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
