@@ -20,7 +20,7 @@ repos:
         stages: [commit]
 
   - repo: https://github.com/ambv/black
-    rev: stable
+    rev: 21.5b1
     hooks:
       - id: black
 
