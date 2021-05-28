@@ -45,6 +45,30 @@
       },
       "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91d47210_97515989",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-28T12:13:56Z",
+      "side": 1,
+      "message": "OK I\u0027ll update it that way.\nNote that with rev set to stable, it is the current behavior today on the CI.",
+      "parentUuid": "095f17aa_f41bc667",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
