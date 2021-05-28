@@ -24,6 +24,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff3b8240_64160a0f",
+        "filename": ".pre-commit-config.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-28T12:20:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f004da4_3efebf35",
+      "range": {
+        "startLine": 23,
+        "startChar": 14,
+        "endLine": 23,
+        "endChar": 15
+      },
+      "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "095f17aa_f41bc667",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "OK I\u0027ll update it that way.\nNote that with rev set to stable, it is the current behavior today on the CI.",
       "parentUuid": "095f17aa_f41bc667",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "81daae26e342593fd05b5f0dd4b057334b7098a4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf3aaf7_f2cc7ee5",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-28T12:20:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "91d47210_97515989",
       "range": {
         "startLine": 32,
         "startChar": 0,
