@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd03f6ca_3d454253",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-05-29T13:58:29Z",
+      "side": 1,
+      "message": "Please fix the subject line to indicate that this is fixing it for local tox runs, and not CI tox runs.\n\nThe following is from the patchset 7 verification run:\n\n12:24:24 pre-commit run-test: commands[1] | pre-commit run gitlint --hook-stage commit-msg --commit-msg-filename .git/COMMIT_EDITMSG\n12:24:24 [INFO] Installing environment for https://github.com/jorisroovers/gitlint.\n12:24:24 [INFO] Once installed this environment will be reused.\n12:24:24 [INFO] This may take a few minutes...\n12:24:27 gitlint..............................................(no files to check)Skipped\n\n\n^^^\nAs you can see, it\u0027s not actually doing anything in CI because it doesn\u0027t know what to do.",
+      "revId": "db636a0a36ffc2795a29e3e7311c02ad81ab42f2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ef94181f_3187833f",
