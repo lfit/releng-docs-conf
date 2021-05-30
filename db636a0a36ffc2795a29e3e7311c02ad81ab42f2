@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "314892ad_db4af85c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-30T07:25:16Z",
+      "side": 1,
+      "message": "Correct.\nThat is why I did not put \"CI:\" in the subject line topic and precised it was addressing the local use at the beginning of the message body.\nI agree it should better be stated directly in the subject line.",
+      "parentUuid": "bd03f6ca_3d454253",
+      "revId": "db636a0a36ffc2795a29e3e7311c02ad81ab42f2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ef94181f_3187833f",
