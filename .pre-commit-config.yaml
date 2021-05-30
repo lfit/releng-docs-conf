@@ -13,9 +13,12 @@ repos:
           - --branch=main
 
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.17.0
+    rev: b23bc4aa8bf7f4be0ca8e00cbcceab8d5ff6b604
     hooks:
       - id: gitlint
+        stages: [commit-msg]
+      - id: gitlint-ci
+        stages: [manual]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.7.1
