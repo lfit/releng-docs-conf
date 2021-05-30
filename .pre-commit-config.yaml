@@ -12,6 +12,13 @@ repos:
     rev: v0.13.1
     hooks:
       - id: gitlint
+        stages: [commit-msg]
+
+  - repo: https://github.com/guillaumelambert/gitlint
+    rev: 5d9d6c265e54ded4f63f218e41f63525cbdff960
+    hooks:
+      - id: gitlint
+        stages: [commit]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.1.2
