@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ef8fc6_c2fe3cf7",
+        "filename": ".pre-commit-config.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2021-05-31T16:11:03Z",
+      "side": 1,
+      "message": "Personally I\u0027m against the forking happening here. Inevitably gitlint will move on and we will forget to update. I\u0027d prefer a solution where we don\u0027t get stuck in a situation where we fall behind from upstream.",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0654949_3f1fc9bf",
