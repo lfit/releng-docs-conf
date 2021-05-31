@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6459f61_d97ed123",
+        "filename": ".pre-commit-config.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-31T19:13:50Z",
+      "side": 1,
+      "message": "That is not a bad point. I am not generally fond of forking projects too.\nI am fine to propose a PR to gitlint official repo if you think it makes senses.\nBut before, I\u0027d like to collect feedbacks here to be sure I didn\u0027t miss anything.\n\nAlso I am not convinced we could get stuck in this particular case.\nTo me, this situation is very unlikeky for 2 reasons:\n\nI made pretty trivial configuration into the file .pre-commit-hooks.yaml and this file is quite independant from gitlint code itself.\nIt is just a commodity to tell what parameters to pass at which stage.\nGetting stuck would probably mean we will loose the actual behavior and complete pre-commit support too.\n\nI don\u0027t expect much gitlint evolution in the future.\nJoris roovers states in https://github.com/jorisroovers/gitlint that [he is] looking for contributors that are interested in taking a more active co-maintainer role as it\u0027s becoming increasingly difficult for [him] to find time to maintain gitlint.",
+      "parentUuid": "72ef8fc6_c2fe3cf7",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d0654949_3f1fc9bf",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-05-31T16:08:56Z",
       "side": 1,
       "message": "I\u0027m not sure this is the right approach but I can confirm that gitlint pre-commit hook by default requires a check for the local `.git/COMMIT_EDITMSG` file. This is the correct behaviour when run on a local system however is the wrong behaviour in CI.\n\nWhat\u0027s more if you just run `gitlint` on the CLI without pre-commit, it checks the latest commit and validates that. According to GitLint this is the correct behaviour for CI systems. In my own systems I\u0027ve created a completely separate job that simply calls `gitlint` rather than using pre-commit for CI systems.\n\nThe reason for this is if you use GitHub for example where the workflow is people push branches instead of patches. We don\u0027t want to only validate the last commit but the entire set of commits against the branch the PR wants to merge into. In such case you could run GitLint using the form:\n\n    gitlint main..HEAD\n\nWhere `main` is the branch that the PR is being merged into. I think Gerrit does not have this problem since it\u0027s all built on single patches per code review but something that needs to be considered for projects that are not using Gerrit.",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a65e4698_c3c143c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-05-31T19:13:50Z",
+      "side": 1,
+      "message": "Thank you for the feedback Thanh.\n\nI agree this is the recommended way described in the official documentation to use gitlint inside a CI \nIf I don\u0027t mistake myself ,I already proposed it in releng/docs but I was asked to abandon it in favor of the solution from change 67641 mentionned in the commit message. Though, I am not convinced by it because of the drawbacks I pointed.\nhttps://gerrit.linuxfoundation.org/infra/c/releng/docs/+/67623/7/tox.ini\n\nFrom what I have understood in further discussions with Andrew, the reason why it was refused is that LFN releng wants to mutualize or centralize configurations in pre-commit.\nhttps://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/67818/comment/0076ca92_72000f92/",
+      "parentUuid": "575e413b_d8b623db",
       "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
