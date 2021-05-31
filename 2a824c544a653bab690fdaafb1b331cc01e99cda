@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "575e413b_d8b623db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2021-05-31T16:08:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is the right approach but I can confirm that gitlint pre-commit hook by default requires a check for the local `.git/COMMIT_EDITMSG` file. This is the correct behaviour when run on a local system however is the wrong behaviour in CI.\n\nWhat\u0027s more if you just run `gitlint` on the CLI without pre-commit, it checks the latest commit and validates that. According to GitLint this is the correct behaviour for CI systems. In my own systems I\u0027ve created a completely separate job that simply calls `gitlint` rather than using pre-commit for CI systems.\n\nThe reason for this is if you use GitHub for example where the workflow is people push branches instead of patches. We don\u0027t want to only validate the last commit but the entire set of commits against the branch the PR wants to merge into. In such case you could run GitLint using the form:\n\n    gitlint main..HEAD\n\nWhere `main` is the branch that the PR is being merged into. I think Gerrit does not have this problem since it\u0027s all built on single patches per code review but something that needs to be considered for projects that are not using Gerrit.",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
