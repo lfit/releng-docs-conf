@@ -212,6 +212,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "651ea883_76d95eed",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-06-01T12:08:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2cfd6db9_e21a747d",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0076ca92_72000f92",
@@ -279,6 +297,24 @@
       "side": 1,
       "message": "There was some confusion here as noticed in the comments thread above.\n\nI agree there is an interest to mutualize configurations.\n\nIn 67839, I\u0027ve proposed tox pre-commit (un)installation specific profiles for developpers who don\u0027t want to install pre-commit locally so that this configuration mutualization makes more sense.\n\nUnfortunately with pre-commit the mutualization mainly concerns versions and compared to tox -deps requirements, pre-commit offers less possibilities.\nI guess it is okay if the goal is to use fixed version as discussed in https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/67838/comment/095f17aa_f41bc667/\nMoreover, some tools such as gitlint cannot be completely configured in pre-commit and their configuration is already mutualized in a separate config file such as .gitlint.\nThough it works, I am not confortable with the solution you point at https://github.com/lfit/releng-global-jjb/blob/master/tox.ini#L62-L78\nsince it introduces \"complex\" scripting and a whitelist_externals to the shell.\nI would rather prefer a straight call to gitlint as discussed in jjb.\nI find the shell calls more problematic than the git calls with blake at https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/67838/comment/095f17aa_f41bc667/ since gitlint can  already perform the same kind of operations and already calls git inside this profile.",
       "parentUuid": "4db3f78a_3bc9f86d",
+      "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11117a1_455c9ad6",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-06-01T12:08:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a166c81e_5c440f9a",
       "revId": "c98aa09e532777297c5523788e81dff1ead484bd",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
