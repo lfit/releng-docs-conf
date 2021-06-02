@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "26c242eed90a168758a59f7a08f97a19f08a7a45",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a5b15ed_c99b7743",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-06-02T20:52:58Z",
+      "side": 1,
+      "message": "I\u0027m good with this, but it appears to need a rebase before it can be merged.",
+      "revId": "26c242eed90a168758a59f7a08f97a19f08a7a45",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
