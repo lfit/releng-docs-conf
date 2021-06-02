@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "0fb07976cc29a0aad9799e61a1a487919dcc167e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fafeaf01_86e64d91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-06-02T20:51:55Z",
+      "side": 1,
+      "message": "This appears to need to be rebased to be able to be merged. Other than that, it\u0027s fine.",
+      "revId": "0fb07976cc29a0aad9799e61a1a487919dcc167e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
