@@ -33,6 +33,24 @@
       "message": "This appears to need to be rebased to be able to be merged. Other than that, it\u0027s fine.",
       "revId": "0fb07976cc29a0aad9799e61a1a487919dcc167e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07272db9_aa5beef9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-06-03T12:25:59Z",
+      "side": 1,
+      "message": "This looks like a  weird Gerrit bug.\n\nGerrit web interface tells me it is already up-to-date when I try to rebase from it.\n\n\u003d\u003e I\u0027ve rebased manually PS3 with my local branches after a git pull.\nThough, I still got the same parent hash 75e1fb0 ...\nDoes the problem still persist on your side ?",
+      "parentUuid": "fafeaf01_86e64d91",
+      "revId": "0fb07976cc29a0aad9799e61a1a487919dcc167e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
