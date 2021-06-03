@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "27e0235c267e85908f916abed06f194b74597cbf",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1294eb2_21f31455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-06-03T15:47:00Z",
+      "side": 1,
+      "message": "Hrmmm, this is still showing as needing a rebase for some reason",
+      "revId": "27e0235c267e85908f916abed06f194b74597cbf",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
