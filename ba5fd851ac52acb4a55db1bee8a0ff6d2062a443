@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4f1e76b_837ca491",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-04T21:45:28Z",
+      "side": 1,
+      "message": "Just curious here, the best practices doc does not mention anything about the case, does it?\n\nhttps://www.conventionalcommits.org/en/v1.0.0/\n\nI\u0027ve fixed just to be more consistant.",
+      "parentUuid": "8cab6081_26a2d075",
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce911372_a27b7ad0",
         "filename": "docs_conf/defaults/onap.yaml",
         "patchSetId": 1
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "415c65fd_e01cab8f",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-04T21:45:28Z",
+      "side": 1,
+      "message": "The request is coming for ONAP. should we ask for tsc vote for this change?",
+      "parentUuid": "ce911372_a27b7ad0",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3a989b4_8c9bd08e",
         "filename": "releasenotes/notes/update-onap-copyright-9debb4772e6d3339.yaml",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2021-08-04T14:04:56Z",
       "side": 1,
       "message": "Do not link to JSD issues for public consumption. Please create a linked RELENG issue to use.",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 50
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eab88c11_818d5b95",
+        "filename": "releasenotes/notes/update-onap-copyright-9debb4772e6d3339.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-04T21:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3a989b4_8c9bd08e",
       "range": {
         "startLine": 4,
         "startChar": 33,
