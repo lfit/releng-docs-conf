@@ -36,6 +36,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd034c11_f89ea659",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T22:01:15Z",
+      "side": 1,
+      "message": "So... the conventional commits website shows everything with lower case and doesn\u0027t mention anything about case at all. But if you\u0027re reading through our best practices you can transitively apply the \"Capitalize the subject line\" rule from the Chris Beams article. I agree with Chris very much on that front and as such our gitlinting from pre-commit is enforcing at capitalized version of the conventional commits.",
+      "parentUuid": "f4f1e76b_837ca491",
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce911372_a27b7ad0",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "The request is coming for ONAP. should we ask for tsc vote for this change?",
       "parentUuid": "ce911372_a27b7ad0",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5587838f_581019e7",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T22:01:15Z",
+      "side": 1,
+      "message": "I\u0027m specifically asking about this because the TSC chair weighed in once on it saying to leave it as is!",
+      "parentUuid": "415c65fd_e01cab8f",
       "range": {
         "startLine": 8,
         "startChar": 12,
