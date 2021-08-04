@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cab6081_26a2d075",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T14:04:56Z",
+      "side": 1,
+      "message": "CI passed this because we apparently never got the tox fix for running the commit-msg pre-commit hooks. This should have failed as our validation states it should be \u0027Docs\u0027 not \u0027docs\u0027\n\nChange Ib2bd5b3b0159a5aee27a157b7e16269474681cd8 fixes this CI failure",
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce911372_a27b7ad0",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T14:04:56Z",
+      "side": 1,
+      "message": "There was discussion a while back about the fact that ONAP has always used the current date as the only date in their copyright. My understanding was that it should remain this way.",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a989b4_8c9bd08e",
+        "filename": "releasenotes/notes/update-onap-copyright-9debb4772e6d3339.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T14:04:56Z",
+      "side": 1,
+      "message": "Do not link to JSD issues for public consumption. Please create a linked RELENG issue to use.",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 50
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
