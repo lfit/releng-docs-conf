@@ -127,6 +127,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7af508a6_9bcb9369",
+        "filename": "docs_conf/defaults/onap.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-04T22:14:01Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! Just to be safe I\u0027ve asked for TSC vote/approval for making this change.",
+      "parentUuid": "5587838f_581019e7",
+      "range": {
+        "startLine": 8,
+        "startChar": 12,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "ba5fd851ac52acb4a55db1bee8a0ff6d2062a443",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3a989b4_8c9bd08e",
         "filename": "releasenotes/notes/update-onap-copyright-9debb4772e6d3339.yaml",
         "patchSetId": 1
