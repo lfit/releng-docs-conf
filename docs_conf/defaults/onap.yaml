@@ -5,7 +5,7 @@ version: master
 
 author: "Open Network Automation Platform"
 # yamllint disable-line rule:line-length
-copyright: "2017 - {}, ONAP Project. Licensed under Creative Commons Attribution 4.0 International License."
+copyright: "© Copyright ONAP. Licensed under Creative Commons Attribution 4.0 International License."
 
 pygments_style: "sphinx"
 html_theme: sphinx_rtd_theme
