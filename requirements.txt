@@ -1,6 +1,6 @@
 pyyaml
 Sphinx~=3.2.0
-sphinx_bootstrap_theme~=0.7.1
+sphinx_bootstrap_theme
 sphinx-tabs
 
 # Indirect Dependencies
