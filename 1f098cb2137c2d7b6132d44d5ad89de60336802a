@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4a7e2a_d6a32d22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 214
+      },
+      "writtenOn": "2021-09-23T08:34:12Z",
+      "side": 1,
+      "message": "The requirement for Sphinx is a very old version, this patch should bring it up to use the latest version.",
+      "revId": "1f098cb2137c2d7b6132d44d5ad89de60336802a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
