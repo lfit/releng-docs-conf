@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "026214e8_d1860ad0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-09-27T20:02:34Z",
+      "side": 1,
+      "message": "This needs more explanation that just \"ONAP requires this\"!",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a128dba_5d6f2950",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +60,23 @@
       "writtenOn": "2021-09-27T19:16:25Z",
       "side": 1,
       "message": "I don\u0027t love using a pre-release version, but given the fact that it\u0027s the first update in 8 years, I understand that it\u0027s necessary. So once there\u0027s a RELENG ticket attached to this, I\u0027m okay with it.",
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed5eddeb_4bc1aaac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-09-27T20:02:34Z",
+      "side": 1,
+      "message": "This needs more explanation in the commit message / comment. Also, there\u0027s not reno note attached to this change.",
       "revId": "576800caff161a51295434a423b482be2696f239",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
