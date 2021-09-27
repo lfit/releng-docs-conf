@@ -24,6 +24,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a379c065_137cff04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2021-09-27T21:16:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "026214e8_d1860ad0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a128dba_5d6f2950",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-27T19:16:25Z",
       "side": 1,
       "message": "This should be a RELENG ticket, so that it\u0027s publicly viewable.",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd878303_cc62ad62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2021-09-27T21:16:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a128dba_5d6f2950",
       "range": {
         "startLine": 12,
         "startChar": 10,
