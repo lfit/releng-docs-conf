@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a128dba_5d6f2950",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-09-27T19:16:25Z",
+      "side": 1,
+      "message": "This should be a RELENG ticket, so that it\u0027s publicly viewable.",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63a5294a_41f2d107",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-09-27T19:16:25Z",
+      "side": 1,
+      "message": "I don\u0027t love using a pre-release version, but given the fact that it\u0027s the first update in 8 years, I understand that it\u0027s necessary. So once there\u0027s a RELENG ticket attached to this, I\u0027m okay with it.",
+      "revId": "576800caff161a51295434a423b482be2696f239",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
