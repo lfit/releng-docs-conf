@@ -1,10 +1,14 @@
-pyyaml
-Sphinx~=4.2.0
+PyYAML  # MIT
+Sphinx>=4.2.0  # BSD
 sphinx_bootstrap_theme
 sphinx-tabs
+sphinxcontrib-blockdiag  # BSD
+sphinxcontrib-needs<=0.5.6
+sphinxcontrib.plantuml
+sphinxcontrib-nwdiag  # BSD
+sphinxcontrib-seqdiag # BSD
+sphinxcontrib-swaggerdoc
+sphinx-rtd-theme
 
 # ONAP needs this, should not affect any others.
-funcparserlib~=1.0.0a0
-
-# Indirect Dependencies
-more-itertools~=5.0.0;python_version<'3.4'  # >6.0.0 requires Python >=3.4
+funcparserlib>=1.0.0a0
