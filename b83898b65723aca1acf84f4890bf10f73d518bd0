@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d91f8b_530235ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 568
+      },
+      "writtenOn": "2021-09-28T18:22:14Z",
+      "side": 1,
+      "message": "Will help package management for all ONAP projects",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
