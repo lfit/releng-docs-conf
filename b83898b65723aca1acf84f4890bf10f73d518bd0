@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2bc12471_dc44a12c",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-09-29T09:21:11Z",
+      "side": 1,
+      "message": "Maybe but is there any strong API break planned with Sphinx 4.3.X ?\n\nI am not fond of the ~\u003d operator which is python specific.\nIt creates some kinds of half-concrete/half-abstract/half-pinned dependencies.\nIt can be convenient but I would prefer to have a second line that would clearly point the problemn such as sphinxcontrib-needs\u003c\u003d0.5.6\n\nAlso I understand from  the commit message that the version is pinned anyway in concrete dependencies\nat https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/68915/2/upper-constraints.os.txt#393",
+      "parentUuid": "406a6a87_19b2c176",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "194ef7c1_e6956919",
         "filename": "requirements.txt",
         "patchSetId": 2
@@ -136,6 +154,24 @@
       "writtenOn": "2021-09-29T08:49:08Z",
       "side": 1,
       "message": "same here",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4f0d65_948ff1b4",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-09-29T09:21:11Z",
+      "side": 1,
+      "message": "and https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/68915/2/upper-constraints.os.txt#243",
+      "parentUuid": "194ef7c1_e6956919",
       "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
