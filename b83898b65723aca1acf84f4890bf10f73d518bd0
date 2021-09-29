@@ -16,6 +16,57 @@
       "message": "Will help package management for all ONAP projects",
       "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd7273e5_7e3da05c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T08:49:08Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of \u003e\u003d that can lead to bad consequences\nso let\u0027s \"fix\" the version (well \"semi fix\" ;)) or let\u0027s just follow upper constraint values",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406a6a87_19b2c176",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T08:49:08Z",
+      "side": 1,
+      "message": "I would have put either `Sphinx~\u003d4.2.0` or `Sphinx` \nthis one would not prevent same issue later on (well it would as openstack upper constraints are fixing it to 4.2.0 but then let\u0027s not put it here this false indication)",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "194ef7c1_e6956919",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T08:49:08Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
