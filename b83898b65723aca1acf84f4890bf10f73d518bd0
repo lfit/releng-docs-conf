@@ -123,6 +123,23 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8341b314_52167fbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T10:02:21Z",
+      "side": 1,
+      "message": "After discussion with Cédric, it appears that we\u0027re here in a \"bad\" situation:\n* according to OpenStack (but not according to python packaging team: https://packaging.python.org/discussions/install-requires-vs-requirements/#requirements-files), requirements file shouldn\u0027t have concrete dependencies (so no \u0027\u003d\u003d\u0027 and no \u0027~\u003d\u0027)\n* according to my experience, \"open gates abstract versions\" (like \u0027\u003e\u003d\u0027) will inevitably goes to a broken system if regular check / update is not done in a regular basis\n\nI would have preferred to keep the \u0027~\u003d\u0027 version here during the time of transition to a better system where we align with (real) openstack upper constraint and update requirements.txt files in a regular basis via cron job.\n\nBut it seems to be too much to ask so I remove my \"-1\".",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "406a6a87_19b2c176",
@@ -158,6 +175,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f46d839b_4ac129f1",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T10:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bc12471_dc44a12c",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "194ef7c1_e6956919",
@@ -189,6 +224,24 @@
       "side": 1,
       "message": "and https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/68915/2/upper-constraints.os.txt#243",
       "parentUuid": "194ef7c1_e6956919",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "398d163d_2aa6d37b",
+        "filename": "requirements.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T10:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cc4f0d65_948ff1b4",
       "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
