@@ -70,6 +70,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f620a554_2fcc2778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 234
+      },
+      "writtenOn": "2021-09-29T09:01:27Z",
+      "side": 1,
+      "message": "Sorry, OpenStack forbids to use concrete deps in requirements.txt (e.g. ~\u003d)",
+      "parentUuid": "89d35d9d_bb0046f4",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "406a6a87_19b2c176",
