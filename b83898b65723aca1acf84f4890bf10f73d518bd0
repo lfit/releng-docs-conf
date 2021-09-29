@@ -52,6 +52,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d35d9d_bb0046f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 234
+      },
+      "writtenOn": "2021-09-29T08:57:18Z",
+      "side": 1,
+      "message": "OpenStack forbids to use concrete deps in upper-constraints (e.g. ~\u003d)\nWe do use upper values due to setuptools selected by ONAP.\n\nSorry Sylvain, I disagree with your -1.",
+      "parentUuid": "b8d3c433_42e4daf0",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "406a6a87_19b2c176",
