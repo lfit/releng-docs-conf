@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e75448e3_1f4ed888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2021-09-29T09:01:29Z",
+      "side": 1,
+      "message": "OK so let\u0027s then do:\nSphinx  # BSD\n...\nfuncparserlib\n\nthe values (4.2.0 and 1.0.0a0) are fixed in the upper constraints so that would be the same no?\n\nI\u0027d love to know the rationale of not allowing `~\u003d` but allowing `\u003e\u003d` if you have it",
+      "parentUuid": "89d35d9d_bb0046f4",
+      "revId": "b83898b65723aca1acf84f4890bf10f73d518bd0",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "406a6a87_19b2c176",
         "filename": "requirements.txt",
         "patchSetId": 2
