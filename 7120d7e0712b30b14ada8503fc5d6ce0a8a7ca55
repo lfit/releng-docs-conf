@@ -16,6 +16,23 @@
       "message": "Bengt: Please fix your verification job 😊\n15:06:24 An unexpected error has occurred: CalledProcessError: command: (\u0027/usr/bin/git\u0027, \u0027fetch\u0027, \u0027origin\u0027, \u0027--tags\u0027)\n15:06:24 return code: 128\n15:06:24 expected return code: 0\n15:06:24 stdout: (none)\n15:06:24 stderr:\n15:06:24     fatal: unable to access \u0027https://gitlab.com/pycqa/flake8/\u0027: The requested URL returned error: 502\n15:06:24",
       "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04398e4e_81a1f4fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 234
+      },
+      "writtenOn": "2021-11-22T14:28:35Z",
+      "side": 1,
+      "message": "recheck / reverify",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
