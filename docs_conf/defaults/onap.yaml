@@ -40,6 +40,6 @@ exclude_patterns:
   - .DS_Store
   - _build
   - Thumbs.db
-  - _build
+  - .tox
 
 todo_include_todos: false
