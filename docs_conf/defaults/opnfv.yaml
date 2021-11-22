@@ -11,6 +11,11 @@ extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.napoleon
   - sphinx.ext.viewcode
+exclude_patterns:
+  - .DS_Store
+  - _build
+  - Thumbs.db
+  - .tox
 todo_include_todos: false
 
 html_theme: opnfv

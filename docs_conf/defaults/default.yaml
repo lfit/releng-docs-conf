@@ -18,6 +18,7 @@ exclude_patterns:
   - .DS_Store
   - _build
   - Thumbs.db
+  - .tox
 todo_include_todos: false
 
 html_theme: bootstrap
