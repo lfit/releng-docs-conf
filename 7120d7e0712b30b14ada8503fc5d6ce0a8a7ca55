@@ -24,6 +24,23 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74b4a54_44aa7d04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-11-23T18:25:55Z",
+      "side": 1,
+      "message": "Just a standardization request. Please put the issue in the footer, not part of the body.\n\nThe footer is defined as the last block of lines with no additional blank lines in it.\n\nIE a commit message has the following format:\n\n--%\u003c--\nSubject\n\u003cblank_line\u003e\nBody (one or more blocks of text, with blank lines between blocks similar to email)\n\u003cblank_line\u003e\nFooter (all lines of footer have no blank lines between them)\n--%\u003c--\n\nWe prefer meta-data, such as issue tracking to be part of the footer, not the body.",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9b83a9d4_5a7d90a3",
@@ -107,6 +124,23 @@
       "side": 1,
       "message": "Probably :(",
       "parentUuid": "358bbc6a_56274fb6",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f360f07_091469ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-11-23T18:25:55Z",
+      "side": 1,
+      "message": "Just a minor request for formatting in the commit message.",
       "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
