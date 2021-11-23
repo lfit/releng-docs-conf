@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a0fdf3dd_259657f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-11-23T13:36:48Z",
+      "side": 1,
+      "message": "correct.\n\nMoreover than ONAP repos are full of tox.ini doppelgangers that needs to be removed.\n\ncf https://gerrit.onap.org/r/c/doc/+/117370",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
