@@ -133,6 +133,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3a69da53_a4855cec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-11-24T20:59:48Z",
+      "side": 1,
+      "message": "Third bullet point in the General section. The 4th was added just today.\n\n\"If the change has an associated issue tracker, does the commit message have an ‘Issue: \u003csomeissue\u003e’ (or any similar tag such as ‘Issue-Id:’ or ‘JIRA:’) in the footer and not in the subject line or body?\"",
+      "parentUuid": "e92489e9_db6cd0ba",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
