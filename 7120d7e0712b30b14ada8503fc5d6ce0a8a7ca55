@@ -115,6 +115,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e92489e9_db6cd0ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-11-24T20:44:33Z",
+      "side": 1,
+      "message": "Actually I didn\u0027t manage to find it in the Best Practices document.",
+      "parentUuid": "16e14470_57595218",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
