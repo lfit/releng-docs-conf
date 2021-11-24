@@ -79,6 +79,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f733f49d_45540d53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-11-24T12:05:24Z",
+      "side": 1,
+      "message": "@Cédric you are welcome.\nBest practices are listed at https://docs.releng.linuxfoundation.org/en/latest/best-practices.html\nThough, I haven\u0027t found anything about this there.\nAnd I have seen both ways in other repos.\n\nMy experience contributing on this repo  is that all rules are not properly described by this page (nor in the links pointed).\nAlso there can be several interpretations of the rules to apply.\n\nIMO, this should better be enforced by gitlint.",
+      "parentUuid": "3a56e59b_4ded7427",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
