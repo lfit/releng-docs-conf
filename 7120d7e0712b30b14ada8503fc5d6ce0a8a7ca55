@@ -97,6 +97,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "16e14470_57595218",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-11-24T16:14:45Z",
+      "side": 1,
+      "message": "I agree we could do better linting on it. As for issue tracking ending up in the body of commits, that\u0027s a fault of not having better CI enforcement and some engineers not sticking to our best practices all the time 😞\n\nThat being said, as Guillame states, this is stated in our Best Practices document.\n\nI\u0027m going to get a little extra verbiage in there stating that _all_ meta data tags should be in the footer. It\u0027s what we expect.\n\nWe\u0027ll also see what we can do to add an all meta-data in footer checker for pre-commit (if one doesn\u0027t exist, we may have to write one)",
+      "parentUuid": "f733f49d_45540d53",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
