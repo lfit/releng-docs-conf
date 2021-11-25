@@ -151,6 +151,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f47ee6b5_57b86663",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2021-11-25T09:40:45Z",
+      "side": 1,
+      "message": "Sorry, I was not clear about what I meant.\nI think the confusion here comes from the fact that empty line are not allowed inside the message footer here. (I have seen both practices)\nMost rules are clear on the fact that body should be separated from footer by a blank line. But I have found nothing clearly stating than empty lines are allowed or not in the message footer.\nIt is probably worth stating it in this 4th bullet point if you think so.",
+      "parentUuid": "3a69da53_a4855cec",
+      "revId": "7120d7e0712b30b14ada8503fc5d6ce0a8a7ca55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b83a9d4_5a7d90a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
