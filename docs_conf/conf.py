@@ -133,5 +133,9 @@ intersphinx_mapping = {
         "https://docs.releng.linuxfoundation.org/projects/lftools/en/latest/",
         None,
     ),
+    "pipelines": (
+        "https://docs.releng.linuxfoundation.org/projects/pipelines/en/latest/",
+        None,
+    ),
     "python": ("https://docs.python.org/3", None),
 }
