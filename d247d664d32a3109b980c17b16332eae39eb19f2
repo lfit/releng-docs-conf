@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf8dfb4_41de579e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2022-08-25T09:19:25Z",
+      "side": 1,
+      "message": "agreed, v0.6.0 was a breaking API change and broke ONAP one year and half ago\nbecause it didn\u0027t support correctly JIRA at that time.\nBut this is no more true today\n\ncf https://gerrit.onap.org/r/c/doc/+/117354",
+      "revId": "d247d664d32a3109b980c17b16332eae39eb19f2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
