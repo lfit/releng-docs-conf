@@ -16,6 +16,24 @@
       "message": "agreed, v0.6.0 was a breaking API change and broke ONAP one year and half ago\nbecause it didn\u0027t support correctly JIRA at that time.\nBut this is no more true today\n\ncf https://gerrit.onap.org/r/c/doc/+/117354",
       "revId": "d247d664d32a3109b980c17b16332eae39eb19f2",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fba46025_2edb6fb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2022-08-25T09:25:16Z",
+      "side": 1,
+      "message": "NB: the sphinx needs documentation link is dead in ONAP change URL\n    https://github.com/useblocks/sphinx-needs/blob/0.6.0/docs/services/index.rst\n    The new doc URL at https://sphinx-needs.readthedocs.io/en/latest/ now mentions JIRA support.",
+      "parentUuid": "baf8dfb4_41de579e",
+      "revId": "d247d664d32a3109b980c17b16332eae39eb19f2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
