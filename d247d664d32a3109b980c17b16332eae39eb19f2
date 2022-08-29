@@ -51,6 +51,23 @@
       "message": "We need a new release to make this change effective.\nIs there any release on the agenda?",
       "revId": "d247d664d32a3109b980c17b16332eae39eb19f2",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74488ac_1f135978",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-08-29T08:15:21Z",
+      "side": 1,
+      "message": "Please open a ticket on helpdesk for this. ",
+      "revId": "d247d664d32a3109b980c17b16332eae39eb19f2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
