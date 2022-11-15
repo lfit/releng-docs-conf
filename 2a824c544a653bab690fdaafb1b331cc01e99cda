@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0318aea6_225f8c69",
+        "filename": ".pre-commit-config.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2022-11-15T15:20:09Z",
+      "side": 1,
+      "message": "upstream was updated",
+      "parentUuid": "c6459f61_d97ed123",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d0654949_3f1fc9bf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 11
@@ -101,6 +119,24 @@
       "writtenOn": "2021-06-02T20:59:38Z",
       "side": 1,
       "message": "There\u0027s no way I\u0027m going to accept a fork of the upstream gitlint if all you\u0027re doing is making it work during the commit stage. If you want it to work in that stage, git your change upstream.\n\nI\u0027m aware that you don\u0027t like the rather hacky method I pointed you at to make it work with tox, but it avoids what you\u0027re trying to do.\n\nTo Thanh\u0027s comment about dedicated gitlint jobs, that\u0027s fine if you\u0027re in GitHub or GitLab, but given the workflow cycle of Gerrit, I really prefer just making sure it works in tox so that CI and local are 100% the same.\n\nIf we were doing our development in one of the other platforms, then a dedicated job that allows it to operate across multiple changes in a changeset would definitely be the correct way forward but with gerrit it\u0027s a guarantee that each time it\u0027s being run it\u0027s against a single change.",
+      "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "631a0610_610f77d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 530
+      },
+      "writtenOn": "2022-11-15T15:20:09Z",
+      "side": 1,
+      "message": "upstream was updated",
+      "parentUuid": "73de0604_f3a58998",
       "revId": "2a824c544a653bab690fdaafb1b331cc01e99cda",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
