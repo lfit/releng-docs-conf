@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9c84c78_64083476",
+        "filename": "releasenotes/notes/remove_constraints-3ac9b2003839ffef.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 577
+      },
+      "writtenOn": "2023-04-05T22:15:18Z",
+      "side": 1,
+      "message": "typo at \u0027durring\u0027",
+      "revId": "c91bb1eda2891d3607e256fb1432d54486ea5021",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
