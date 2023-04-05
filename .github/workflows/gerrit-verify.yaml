@@ -66,7 +66,7 @@ jobs:
     needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - uses: lfit/checkout-gerrit-change-action@v0.2
+      - uses: lfit/checkout-gerrit-change-action@v0.3
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
@@ -84,7 +84,7 @@ jobs:
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
-          fetch-depth: "30"
+          fetch-depth: "0"
       - uses: actions/setup-python@v4
         id: setup-python
         with:
