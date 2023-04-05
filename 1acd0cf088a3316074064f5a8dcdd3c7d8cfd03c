@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29f4b92_1fccb2de",
+        "filename": "tox.ini",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 577
+      },
+      "writtenOn": "2023-04-05T22:39:07Z",
+      "side": 1,
+      "message": "are the first couple of dashes required as well, or is it a typo?",
+      "revId": "1acd0cf088a3316074064f5a8dcdd3c7d8cfd03c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
