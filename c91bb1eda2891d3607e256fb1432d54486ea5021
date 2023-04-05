@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38462bb9_e6d260e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-04-05T22:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08a525dc_d13b6de2",
+      "revId": "c91bb1eda2891d3607e256fb1432d54486ea5021",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9c84c78_64083476",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-05T22:15:18Z",
       "side": 1,
       "message": "typo at \u0027durring\u0027",
+      "revId": "c91bb1eda2891d3607e256fb1432d54486ea5021",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad5e483_2b4a17a1",
+        "filename": "releasenotes/notes/remove_constraints-3ac9b2003839ffef.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-04-05T22:21:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9c84c78_64083476",
       "revId": "c91bb1eda2891d3607e256fb1432d54486ea5021",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
