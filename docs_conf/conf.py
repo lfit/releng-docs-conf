@@ -117,20 +117,20 @@ htmlhelp_basename = cfg.get("htmlhelp_basename", "DocsConf")
 
 intersphinx_mapping = {
     "common-packer": (
-        "https://docs.releng.linuxfoundation.org/projects/common-packer/en/latest/",
+        "https://docs.releng.linuxfoundation.org/projects/common-packer/en/stable/",
         None,
     ),
     "global-jjb": (
-        "https://docs.releng.linuxfoundation.org/projects/global-jjb/en/latest/",
+        "https://docs.releng.linuxfoundation.org/projects/global-jjb/en/stable/",
         None,
     ),
     "lfdocs": ("https://docs.releng.linuxfoundation.org/en/latest/", None),
     "lfdocs-conf": (
-        "https://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/latest/",
+        "https://docs.releng.linuxfoundation.org/projects/lfdocs-conf/en/stable/",
         None,
     ),
     "lftools": (
-        "https://docs.releng.linuxfoundation.org/projects/lftools/en/latest/",
+        "https://docs.releng.linuxfoundation.org/projects/lftools/en/stable/",
         None,
     ),
     "pipelines": (
