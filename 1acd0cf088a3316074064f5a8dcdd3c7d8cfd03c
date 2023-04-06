@@ -16,6 +16,24 @@
       "message": "are the first couple of dashes required as well, or is it a typo?",
       "revId": "1acd0cf088a3316074064f5a8dcdd3c7d8cfd03c",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab52848_72a00551",
+        "filename": "tox.ini",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-04-06T12:50:09Z",
+      "side": 1,
+      "message": "Yes as it\u0027s telling tox to stop processing command line arguments and pass the rest as additional positional arguments to be used by the rest of the defnition",
+      "parentUuid": "a29f4b92_1fccb2de",
+      "revId": "1acd0cf088a3316074064f5a8dcdd3c7d8cfd03c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
