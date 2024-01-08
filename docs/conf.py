@@ -26,5 +26,6 @@ release = str(VersionInfo("lfdocs-conf"))
 
 linkcheck_ignore = [
     # The '#' in the path makes sphinx think it's an anchor
-    "https://gerrit.linuxfoundation.org/infra/#/admin/projects/releng/docs-conf"
+    "https://gerrit.linuxfoundation.org/infra/#/admin/projects/releng/docs-conf",
+    "https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#ref-role",
 ]
