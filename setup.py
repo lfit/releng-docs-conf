@@ -1,4 +1,5 @@
 """Setup for Docs Configuration."""
+
 from setuptools import setup
 
 

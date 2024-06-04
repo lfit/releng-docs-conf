@@ -13,5 +13,6 @@
 
 Configure sphinx-doc through an YAML file.
 """
+
 __author__ = "Linux Foundation Releng"
 __summary__ = "Linux Foundation DocsConf"

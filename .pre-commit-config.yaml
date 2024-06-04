@@ -29,16 +29,14 @@ repos:
       - id: prettier
         stages: [commit]
 
-  - repo: https://github.com/ambv/black
-    rev: 23.3.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: f42857794802b6a77b0e66f08803575aa80d3c8f # frozen: v0.4.7
     hooks:
-      - id: black
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-      - id: flake8
-        args: ["--max-line-length=88"]
+      - id: ruff
+        files: ^.+\.py$
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+        files: ^.+\.py$
 
   - repo: https://github.com/pycqa/bandit
     rev: 1.7.5

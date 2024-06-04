@@ -10,6 +10,7 @@
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
 """Docs Conf Tests."""
+
 import importlib
 import os
 import pytest
