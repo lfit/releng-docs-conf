@@ -1,0 +1,9 @@
+Verified+1: LFIT GitHub-Gerrit <releng+github-lfit-gerrit@linuxfoundation.org>
+Code-Review+2: Thanh Ha <thanh.ha@linuxfoundation.org>
+Code-Review+2: Kevin Sandi <ksandi@contractor.linuxfoundation.org>
+Verified+1: LFIT Required GHA <releng+lfit-required-gha@linuxfoundation.org>
+Submitted-by: Kevin Sandi <ksandi@contractor.linuxfoundation.org>
+Submitted-at: Thu, 15 Jan 2026 22:47:47 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/74060
+Project: releng/docs-conf
+Branch: refs/heads/master
