@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "374796a9_60271131",
+        "filename": ".github/workflows/release.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2026-01-15T23:31:57Z",
+      "side": 1,
+      "message": "Done https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/74060",
+      "parentUuid": "0daec31b_b7818088",
+      "revId": "4ad86962a3ea018baaf0dbb8a3fe21d651dc9b69",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1e4da03_2db7da24",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-01-15T12:38:05Z",
       "side": 1,
       "message": "This is not a blocker, but FYI the latest version of actions/setup-python is v6.1.0\n83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
+      "revId": "4ad86962a3ea018baaf0dbb8a3fe21d651dc9b69",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee0a5c6c_eed8a65a",
+        "filename": ".github/workflows/release.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2026-01-15T23:31:57Z",
+      "side": 1,
+      "message": "Done https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/74060",
+      "parentUuid": "a1e4da03_2db7da24",
       "revId": "4ad86962a3ea018baaf0dbb8a3fe21d651dc9b69",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
