@@ -1,13 +1,13 @@
 PyYAML  # MIT
-Sphinx>=4.2.0,<9.0.0  # BSD
+Sphinx>=7.0.0,<10.0.0  # BSD
 sphinx_bootstrap_theme
 sphinx-tabs
 sphinxcontrib-blockdiag  # BSD
-sphinxcontrib-needs
+sphinx-needs  # Replaces deprecated sphinxcontrib-needs
 sphinxcontrib.plantuml
 sphinxcontrib-nwdiag  # BSD
-sphinxcontrib-seqdiag # BSD
-sphinxcontrib-swaggerdoc
+sphinxcontrib-seqdiag  # BSD
+sphinxcontrib-openapi  # Replaces abandoned sphinxcontrib-swaggerdoc
 sphinx-rtd-theme
 
 # ONAP needs this, should not affect any others.

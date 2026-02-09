@@ -28,13 +28,13 @@ extensions:
   - sphinx.ext.todo
   - sphinx.ext.imgmath
   - sphinx.ext.viewcode
-  - sphinxcontrib.needs
+  - sphinx_needs
   - sphinxcontrib.nwdiag
   - sphinxcontrib.seqdiag
   - sphinx.ext.ifconfig
   - sphinx.ext.todo
   - sphinxcontrib.plantuml
-  - sphinxcontrib.swaggerdoc
+  - sphinxcontrib.openapi
 
 exclude_patterns:
   - .DS_Store
