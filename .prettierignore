@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+# Exclude YAML files from prettier formatting
+# Prettier normalises quote styles (single to double) and collapses
+# multi-space inline comments (e.g. version pins after action SHAs).
+# YAML linting is already handled by yamllint.
+*.yaml
+*.yml
