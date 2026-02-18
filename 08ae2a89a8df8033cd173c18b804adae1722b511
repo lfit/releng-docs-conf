@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848fce26_dd6a911f",
+        "filename": ".github/workflows/build-test.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2026-02-18T18:11:17Z",
+      "side": 1,
+      "message": "This is a gerrit repository, so we you would need to update the gerrit-verify.yaml",
+      "revId": "08ae2a89a8df8033cd173c18b804adae1722b511",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b28b859_5b0cb1f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2026-02-18T18:11:17Z",
+      "side": 1,
+      "message": "The standard GitHub build-test.yaml isn\u0027t going to work for this as it\u0027s a gerrit repo. The gerrit-verify.yaml workflow needs to be updated appropriately.",
+      "revId": "08ae2a89a8df8033cd173c18b804adae1722b511",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
