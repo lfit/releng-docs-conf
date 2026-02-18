@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "256c586b_03034b3f",
+        "filename": ".github/workflows/build-test.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2026-02-18T18:36:03Z",
+      "side": 1,
+      "message": "Will put through on a subsequent change, which will include enabling GitHub2Gerrit.",
+      "parentUuid": "848fce26_dd6a911f",
+      "revId": "08ae2a89a8df8033cd173c18b804adae1722b511",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9b28b859_5b0cb1f6",
