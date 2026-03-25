@@ -1,0 +1,77 @@
+version = 1
+
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+# =============================================================================
+# REUSE annotations for files that cannot contain inline SPDX headers.
+# https://reuse.software/spec-3.3/
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Historic project files — EPL-1.0
+# The original docs-conf project is licensed under Eclipse Public License 1.0.
+# -----------------------------------------------------------------------------
+
+# Configuration and build files
+[[annotations]]
+path = [
+    ".editorconfig",
+    ".gitignore",
+    ".gitlint",
+    ".gitreview",
+    ".yamllint.yaml",
+    "MANIFEST.in",
+    "reno.yaml",
+    "requirements.txt",
+    "setup.cfg",
+    "setup.py",
+    "test-requirements.txt",
+    "tox.ini",
+]
+SPDX-License-Identifier = "EPL-1.0"
+SPDX-FileCopyrightText = "The Linux Foundation and others"
+
+# Documentation content and assets
+[[annotations]]
+path = [
+    "README.rst",
+    "docs/conf.yaml",
+    "docs/config.rst",
+    "docs/index.rst",
+    "docs/install.rst",
+    "docs/release-notes.rst",
+    "docs/requirements.txt",
+    "docs/_static/logo.png",
+    "docs/favicon.ico",
+]
+SPDX-License-Identifier = "EPL-1.0"
+SPDX-FileCopyrightText = "The Linux Foundation and others"
+
+# Configuration defaults and examples
+[[annotations]]
+path = [
+    "docs_conf/defaults/*.yaml",
+    "examples/conf.yaml",
+]
+SPDX-License-Identifier = "EPL-1.0"
+SPDX-FileCopyrightText = "The Linux Foundation and others"
+
+# Release notes (reno tool output and legacy relnotes)
+# These are auto-generated or simple changelog entries — impractical to
+# add inline headers to each note file.
+[[annotations]]
+path = [
+    "releasenotes/notes/*.yaml",
+    "relnotes/*.txt",
+]
+SPDX-License-Identifier = "EPL-1.0"
+SPDX-FileCopyrightText = "The Linux Foundation and others"
+
+# Analysis and design documents
+[[annotations]]
+path = [
+    "docs/ANALYSIS*.md",
+]
+SPDX-License-Identifier = "EPL-1.0"
+SPDX-FileCopyrightText = "The Linux Foundation and others"

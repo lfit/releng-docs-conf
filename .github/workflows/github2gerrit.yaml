@@ -1,0 +1,64 @@
+---
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+name: 'GitHub2Gerrit Python'
+
+# yamllint disable-line rule:truthy
+on:
+  workflow_dispatch:
+    inputs:
+      preserve_github_prs:
+        description: "Do NOT close GitHub PRs after pushing to Gerrit"
+        required: false
+        default: false
+        type: boolean
+      allow_duplicates:
+        description: "Allow duplicate changes to be raised in Gerrit"
+        required: false
+        default: false
+        type: boolean
+
+  pull_request_target:
+    types: [opened, reopened, edited, synchronize]
+    branches:
+      - master
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.run_id }}"
+  cancel-in-progress: true
+
+jobs:
+  github2gerrit:
+    name: 'GitHub2Gerrit Python'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    timeout-minutes: 12
+    steps:
+      # Harden the runner used by this workflow
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+        name: 'Harden runner'
+        with:
+          egress-policy: audit
+
+      - name: 'Checkout repository'
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 10
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: 'Run GitHub2Gerrit Action'
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/github2gerrit-action@80213a86d7e5f2b58de497f0388fc9fa87a96b37  # v1.1.0
+        with:
+          USE_PR_AS_COMMIT: true
+          ALLOW_DUPLICATES: ${{ inputs.allow_duplicates }}
+          PRESERVE_GITHUB_PRS: ${{ inputs.preserve_github_prs }}
+          GERRIT_SSH_PRIVKEY_G2G: ${{ secrets.GERRIT_SSH_PRIVKEY_G2G }}
+          GERRIT_KNOWN_HOSTS: ${{ vars.GERRIT_KNOWN_HOSTS }}
+          VERBOSE: true
