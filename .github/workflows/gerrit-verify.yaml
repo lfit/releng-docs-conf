@@ -1,56 +1,102 @@
 ---
-name: Gerrit Verify
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+# Gerrit-integrated Python Build/Test workflow with manual dispatch bypass.
+#
+# When dispatched by gerrit_to_platform (default):
+#   - Clears previous Gerrit Verified vote
+#   - Checks out the unmerged Gerrit change via refspec
+#   - Runs lint, build, test, audit, and SBOM jobs
+#   - Votes the workflow conclusion back to Gerrit
+#
+# When dispatched manually from the GitHub Actions UI:
+#   - Set MANUAL_DISPATCH to true
+#   - Gerrit voting jobs are skipped
+#   - Standard actions/checkout is used against the selected branch
+#   - Lint, build, test, audit, and SBOM jobs run normally
+name: 'Gerrit Verify'
 
 # yamllint disable-line rule:truthy
 on:
   workflow_dispatch:
     inputs:
+      MANUAL_DISPATCH:
+        description: "Set true to run without Gerrit (skips voting)"
+        required: false
+        type: boolean
+        default: false
+      clear_cache:
+        description: 'Clear all Python dependency caches'
+        type: boolean
+        default: false
+        required: false
       GERRIT_BRANCH:
         description: "Branch that change is against"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_CHANGE_ID:
         description: "The ID for the change"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_CHANGE_NUMBER:
         description: "The Gerrit number"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_CHANGE_URL:
         description: "URL to the change"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_EVENT_TYPE:
-        description: "Type of Gerrit event"
-        required: true
+        description: "Gerrit event type"
+        required: false
         type: string
+        default: ""
       GERRIT_PATCHSET_NUMBER:
         description: "The patch number for the change"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_PATCHSET_REVISION:
         description: "The revision sha"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_PROJECT:
         description: "Project in Gerrit"
-        required: true
+        required: false
         type: string
+        default: ""
       GERRIT_REFSPEC:
         description: "Gerrit refspec of change"
-        required: true
+        required: false
         type: string
+        default: ""
 
 concurrency:
-  group: ${{ github.event.inputs.GERRIT_CHANGE_ID || github.run_id }}
+  # yamllint disable-line rule:line-length
+  group: "${{ github.event.inputs.GERRIT_CHANGE_ID || github.run_id }}"
   cancel-in-progress: true
 
+permissions: {}
+
 jobs:
+
+  # ===================================================================
+  # Gerrit: Clear previous Verified vote (skipped for manual dispatch)
+  # ===================================================================
   clear-vote:
+    if: >-
+      inputs.MANUAL_DISPATCH == false
+      && inputs.GERRIT_CHANGE_NUMBER != ''
     runs-on: ubuntu-latest
     steps:
       - name: Clear votes
+        # yamllint disable-line rule:line-length
         uses: lfreleng-actions/gerrit-review-action@6d2e00dfd3173cd9a36d11350c8fba44731c7b4e  # v0.10.0
         with:
           host: ${{ vars.LFIT_GERRIT_SERVER }}
@@ -63,26 +109,106 @@ jobs:
       - name: Allow replication
         run: sleep 10s
 
-  lint:
-    needs: clear-vote
-    # yamllint disable-line rule:line-length
-    uses: lfit/releng-reusable-workflows/.github/workflows/compose-repo-linting.yaml@b4c8bfdea114d034bfa6ed2fe2c9775bc091d5ca  # v0.2.28
-    with:
-      GERRIT_BRANCH: ${{ inputs.GERRIT_BRANCH }}
-      GERRIT_CHANGE_ID: ${{ inputs.GERRIT_CHANGE_ID }}
-      GERRIT_CHANGE_NUMBER: ${{ inputs.GERRIT_CHANGE_NUMBER }}
-      GERRIT_CHANGE_URL: ${{ inputs.GERRIT_CHANGE_URL }}
-      GERRIT_EVENT_TYPE: ${{ inputs.GERRIT_EVENT_TYPE }}
-      GERRIT_PATCHSET_NUMBER: ${{ inputs.GERRIT_PATCHSET_NUMBER }}
-      GERRIT_PATCHSET_REVISION: ${{ inputs.GERRIT_PATCHSET_REVISION }}
-      GERRIT_PROJECT: ${{ inputs.GERRIT_PROJECT }}
-      GERRIT_REFSPEC: ${{ inputs.GERRIT_REFSPEC }}
-
-  tox:
+  # ===================================================================
+  # Lint: actionlint + pre-commit (parallel with build pipeline)
+  # ===================================================================
+  actionlint:
+    name: 'Actionlint'
+    if: >-
+      needs.clear-vote.result == 'success'
+      || needs.clear-vote.result == 'skipped'
     needs: clear-vote
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 5
     steps:
-      - name: Checkout change
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Download actionlint
+        id: get_actionlint
+        # yamllint disable-line rule:line-length
+        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+        shell: bash
+      - name: Check workflow files
+        run: ${{ steps.get_actionlint.outputs.executable }} -color
+        shell: bash
+
+  pre-commit:
+    name: 'Pre-commit'
+    if: >-
+      needs.clear-vote.result == 'success'
+      || needs.clear-vote.result == 'skipped'
+    needs: clear-vote
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Configure Python
+        # yamllint disable-line rule:line-length
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
+        with:
+          python-version: "3.11"
+      - name: Run static analysis and format checkers
+        # yamllint disable-line rule:line-length
+        run: SKIP=actionlint pipx run pre-commit run --all-files --show-diff-on-failure
+
+  # ===================================================================
+  # Repository Metadata
+  # ===================================================================
+  repository-metadata:
+    name: "Repository Metadata"
+    if: >-
+      needs.clear-vote.result == 'success'
+      || needs.clear-vote.result == 'skipped'
+    needs: clear-vote
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    timeout-minutes: 5
+    steps:
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+        with:
+          egress-policy: audit
+
+      # --- Gerrit Checkout (when dispatched by gerrit_to_platform) ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
         uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
         with:
@@ -90,24 +216,300 @@ jobs:
           gerrit-url: ${{ vars.GERRIT_URL }}
           delay: "0s"
           fetch-depth: 0
-      - name: Setup Python
-        # yamllint disable-line rule:line-length
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
-        id: setup-python
-        with:
-          python-version: "3.11"
-      - name: Run tests
-        run: >-
-          TOX_SKIP_ENV=pre-commit pipx run tox
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
 
+      # --- Standard Checkout (for manual dispatch) ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: "Gather repository metadata"
+        id: repo-metadata
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/repository-metadata-action@ceabcd987d13d7bfefd2372e01eebb0ddac45956  # v0.2.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_summary: 'true'
+          gerrit_summary: 'false'
+          artifact_upload: 'true'
+          artifact_formats: 'json'
+
+  # ===================================================================
+  # Python Build
+  # ===================================================================
+  python-build:
+    name: 'Python Build'
+    if: >-
+      needs.clear-vote.result == 'success'
+      || needs.clear-vote.result == 'skipped'
+    needs: clear-vote
+    runs-on: 'ubuntu-latest'
+    outputs:
+      matrix_json: "${{ steps.python-build.outputs.matrix_json }}"
+      artefact_name: "${{ steps.python-build.outputs.artefact_name }}"
+      artefact_path: "${{ steps.python-build.outputs.artefact_path }}"
+    permissions:
+      contents: read
+      actions: write  # Required for cache deletion when clear_cache is true
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    steps:
+      # Harden the runner used by this workflow
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+        with:
+          egress-policy: 'audit'
+
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: 'Build Python project'
+        id: python-build
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/python-build-action@7ff456c72f1dd50ef212ea7222efc12693221af3  # v1.0.4
+        with:
+          clear_cache: ${{ github.event.inputs.clear_cache || 'false' }}
+
+  # ===================================================================
+  # Python Tests (matrix)
+  # ===================================================================
+  python-tests:
+    name: 'Python Tests'
+    runs-on: 'ubuntu-latest'
+    needs: 'python-build'
+    strategy:
+      fail-fast: false
+      matrix: "${{ fromJson(needs.python-build.outputs.matrix_json) }}"
+    permissions:
+      contents: read
+    timeout-minutes: 12
+    steps:
+      # Harden the runner used by this workflow
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+        with:
+          egress-policy: audit
+
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: "Python tests [pytest] ${{ matrix.python-version }}"
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/python-test-action@92d4110d44ebc18fa4575c6b00203ff67d01a1cb  # v1.0.1
+        with:
+          python_version: ${{ matrix.python-version }}
+
+  # ===================================================================
+  # Python Audit (matrix)
+  # ===================================================================
+  python-audit:
+    name: 'Python Audit'
+    runs-on: 'ubuntu-latest'
+    needs: 'python-build'
+    strategy:
+      fail-fast: false
+      matrix: "${{ fromJson(needs.python-build.outputs.matrix_json) }}"
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      # Harden the runner used by this workflow
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+        with:
+          egress-policy: 'audit'
+
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: "Audit dependencies ${{ matrix.python-version }}"
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/python-audit-action@1776538e768c52c55c3c96495f6e25f0762ad28f  # v0.2.6
+        with:
+          python_version: "${{ matrix.python-version }}"
+
+  # ===================================================================
+  # SBOM Generation + Grype Vulnerability Scan
+  # ===================================================================
+  sbom:
+    name: 'Generate SBOM'
+    runs-on: ubuntu-latest
+    needs: 'python-build'
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      # --- Gerrit Checkout ---
+      - name: Checkout Gerrit change
+        if: inputs.GERRIT_REFSPEC != ''
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/checkout-gerrit-change-action@a42e7b28e20da2644d2c5d90f1294d0634a71d9c  # v1.0.0
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          gerrit-url: ${{ vars.GERRIT_URL }}
+          delay: "0s"
+          ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
+
+      # --- Standard Checkout ---
+      - name: Checkout repository (manual)
+        if: inputs.GERRIT_REFSPEC == ''
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: "Generate SBOM"
+        id: sbom
+        # yamllint disable-line rule:line-length
+        uses: lfreleng-actions/python-sbom-action@ae4aca2ef28d7da4ec95049cc78be43e632d322a  # v0.1.0
+        with:
+          include_dev: "false"
+          sbom_format: "both"
+
+      - name: "Upload SBOM artifacts"
+        # yamllint disable-line rule:line-length
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        with:
+          name: sbom-files
+          path: |
+            sbom-cyclonedx.json
+            sbom-cyclonedx.xml
+          retention-days: 45
+
+      - name: "Security scan with Grype (SARIF)"
+        # yamllint disable-line rule:line-length
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2  # v7.4.0
+        id: grype-sarif
+        # The first Grype scan should not abort the job on failure so
+        # that subsequent steps can collect artefacts and display
+        # human-readable results; the final check step will fail the
+        # job if needed
+        continue-on-error: true
+        with:
+          sbom: "${{ steps.sbom.outputs.sbom_json_path }}"
+          output-format: "sarif"
+          output-file: "grype-results.sarif"
+          fail-build: "true"
+
+      - name: "Security scan with Grype (Text/Table)"
+        # yamllint disable-line rule:line-length
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2  # v7.4.0
+        id: grype-table
+        if: always()
+        with:
+          sbom: "${{ steps.sbom.outputs.sbom_json_path }}"
+          output-format: "table"
+          output-file: "grype-results.txt"
+          fail-build: "false"
+
+      - name: "Upload Grype scan results"
+        # yamllint disable-line rule:line-length
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        if: always()
+        with:
+          name: grype-scan-results
+          path: |
+            grype-results.sarif
+            grype-results.txt
+          retention-days: 90
+
+      - name: "Grype summary"
+        if: always()
+        run: |
+            # Grype summary
+            {
+              echo "## SBOM Summary"
+              echo "SBOM count: ${{ steps.sbom.outputs.component_count }}"
+              echo "Tool used: ${{ steps.sbom.outputs.dependency_manager }}"
+              echo ""
+              echo "## Grype Vulnerability Scan"
+              if [ -f grype-results.txt ]; then
+                cat grype-results.txt
+              else
+                echo "No scan results available"
+              fi
+            } >> "$GITHUB_STEP_SUMMARY"
+            if [ -f grype-results.txt ]; then
+              echo "--- Grype scan results ---"
+              cat grype-results.txt
+            fi
+
+      - name: "Check Grype scan results"
+        if: steps.grype-sarif.outcome == 'failure'
+        run: |
+            # Check Grype scan results
+            echo "::error::Grype found vulnerabilities" \
+              "at or above severity threshold"
+            echo "Review the Grype Summary above or download the" \
+              "grype-scan-results artifact for details"
+            exit 1
+
+  # ===================================================================
+  # Gerrit: Vote result (skipped for manual dispatch)
+  # ===================================================================
   vote:
-    if: ${{ always() }}
-    needs: [clear-vote, lint, tox]
+    if: >-
+      always()
+      && inputs.MANUAL_DISPATCH == false
+      && inputs.GERRIT_CHANGE_NUMBER != ''
+    needs:
+      - clear-vote
+      - actionlint
+      - pre-commit
+      - repository-metadata
+      - python-build
+      - python-tests
+      - python-audit
+      - sbom
     runs-on: ubuntu-latest
     steps:
       - name: Get workflow conclusion
         # yamllint disable-line rule:line-length
-        uses: im-open/workflow-conclusion@e4f7c4980600fbe0818173e30931d3550801b992 # v2.2.3
+        uses: im-open/workflow-conclusion@e4f7c4980600fbe0818173e30931d3550801b992  # v2.2.3
       - name: Set vote
         # yamllint disable-line rule:line-length
         uses: lfreleng-actions/gerrit-review-action@6d2e00dfd3173cd9a36d11350c8fba44731c7b4e  # v0.10.0

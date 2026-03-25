@@ -1,27 +1,34 @@
 ---
-default_language_version:
-  python: python3
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+ci:
+  autofix_commit_msg: "Chore: pre-commit autoupdate"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
     hooks:
       - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: detect-private-key
       - id: no-commit-to-branch
         args:
           - --branch=master
           - --branch=main
 
-  - repo: local
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: acc9d9de6369b76d22cb4167029d2035e8730b98 # frozen: v0.19.1
     hooks:
       - id: gitlint
-        name: gitlint
-        language: python
-        additional_dependencies:
-          - "gitlint-core >= 0.19.1"
-        entry: gitlint
-        args: [--staged, --msg-filename]
-        stages: [commit-msg]
+
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: 3fdb16d38f0b15a0c4cfab76e2e66a8a5bb30e26 # frozen: v5.0.2
+    hooks:
+      - id: reuse
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: f12edd9c7be1c20cfa42420fd0e6df71e42b51ea # frozen: v4.0.0-alpha.8
@@ -31,7 +38,7 @@ repos:
         exclude_types: [yaml]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: fa93bc3224c614a0e9786d3e2d3d48edcca246eb  # frozen: v0.15.1
+    rev: fa93bc3224c614a0e9786d3e2d3d48edcca246eb # frozen: v0.15.1
     hooks:
       - id: ruff
         files: ^.+\.py$
@@ -40,7 +47,7 @@ repos:
         files: ^.+\.py$
 
   - repo: https://github.com/pycqa/bandit
-    rev: 765f00d3f202f83f61d03f882f80a2d5142d81f8  # frozen: 1.9.3
+    rev: 765f00d3f202f83f61d03f882f80a2d5142d81f8 # frozen: 1.9.3
     hooks:
       - id: bandit
         # Bandit does not need to run on test code
@@ -52,7 +59,7 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530  # frozen: v1.38.0
+    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530 # frozen: v1.38.0
     hooks:
       - id: yamllint
 
@@ -62,6 +69,6 @@ repos:
       - id: write-good
 
   - repo: https://github.com/rhysd/actionlint
-    rev: 393031adb9afb225ee52ae2ccd7a5af5525e03e8  # frozen: v1.7.11
+    rev: 393031adb9afb225ee52ae2ccd7a5af5525e03e8 # frozen: v1.7.11
     hooks:
       - id: actionlint
