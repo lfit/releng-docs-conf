@@ -1,5 +1,5 @@
 PyYAML  # MIT
-Sphinx>=7.0.0,<10.0.0  # BSD
+Sphinx>=9.1.0,<10.0.0  # BSD
 sphinx_bootstrap_theme
 sphinx-tabs
 sphinxcontrib-blockdiag  # BSD
