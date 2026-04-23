@@ -11,4 +11,4 @@ sphinxcontrib-openapi  # Replaces abandoned sphinxcontrib-swaggerdoc
 sphinx-rtd-theme
 
 # ONAP needs this, should not affect any others.
-funcparserlib>=1.0.0a0
+funcparserlib>=2.0.0a0
