@@ -273,6 +273,7 @@ jobs:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
           delay: "0s"
+          fetch-depth: 0
           ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
 
       # --- Standard Checkout ---
@@ -280,6 +281,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 0
 
       - name: 'Build Python project'
         id: python-build
@@ -327,7 +330,7 @@ jobs:
 
       - name: "Python tests [pytest] ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-test-action@92d4110d44ebc18fa4575c6b00203ff67d01a1cb  # v1.0.1
+        uses: lfreleng-actions/python-test-action@aa753462f090101dcb0c4708e9499f55e276e373  # v1.1.2
         with:
           python_version: ${{ matrix.python-version }}
 
@@ -370,7 +373,7 @@ jobs:
 
       - name: "Audit dependencies ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-audit-action@1776538e768c52c55c3c96495f6e25f0762ad28f  # v0.2.6
+        uses: modeseven-lfreleng-actions/python-audit-action@4e27678e3593cbfc1c3ef6103ed8da5f7870fa50  # PR #129 HEAD (temporary; transitively pins python-project-name-action PR #98)
         with:
           python_version: "${{ matrix.python-version }}"
 
