@@ -24,12 +24,12 @@ jobs:
     timeout-minutes: 5
     steps:
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: audit
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 0
 
@@ -55,13 +55,13 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       - name: 'Checkout repository'
         # yamllint disable-line rule:line-length
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -69,7 +69,7 @@ jobs:
       - name: 'Verify pushed tag'
         id: 'tag-validate'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/tag-validate-action@67695fa3d045917ca7ecc0f1d5f0cad03e231104  # v1.0.1
+        uses: lfreleng-actions/tag-validate-action@461d187a53b5de27b068c2cea5af972c085a4a6a  # v1.0.2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           require_type: 'semver'
@@ -121,17 +121,17 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: 'Build Python project'
         id: 'python-build'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-build-action@7ff456c72f1dd50ef212ea7222efc12693221af3  # v1.0.4
+        uses: lfreleng-actions/python-build-action@5f570d5d17a7315074a824a91c6a705b6fc5c7dd  # v1.1.2
         with:
           sigstore_sign: true
           attestations: true
@@ -150,16 +150,16 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: 'Test Python project [PYTEST]'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-test-action@92d4110d44ebc18fa4575c6b00203ff67d01a1cb  # v1.0.1
+        uses: lfreleng-actions/python-test-action@aa753462f090101dcb0c4708e9499f55e276e373  # v1.1.2
         with:
           python_version: "${{ matrix.python-version }}"
 
@@ -177,18 +177,22 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: 'Audit Python project'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-audit-action@1776538e768c52c55c3c96495f6e25f0762ad28f  # v0.2.6
+        uses: lfreleng-actions/python-audit-action@78b00a589ced3e8f70d0cd03fd592b8c92298dfd  # v0.3.0
         with:
           python_version: "${{ matrix.python-version }}"
+          # Honour the same NO_BLOCK_AUDIT_FAIL override as the Grype
+          # gate so the dependency audit does not block a release on
+          # newly discovered CVEs when the variable is set.
+          permit_fail: "${{ vars.NO_BLOCK_AUDIT_FAIL == 'true' }}"
 
   sbom:
     name: 'Generate SBOM'
@@ -200,12 +204,12 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: "Generate SBOM"
         id: sbom
@@ -217,7 +221,7 @@ jobs:
 
       - name: "Upload SBOM artifacts"
         # yamllint disable-line rule:line-length
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
           name: sbom-files
           path: |
@@ -225,74 +229,173 @@ jobs:
             sbom-cyclonedx.xml
           retention-days: 45
 
-      - name: "Security scan with Grype (SARIF)"
-        # yamllint disable-line rule:line-length
-        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2  # v7.4.0
-        id: grype-sarif
-        # The first Grype scan should not abort the job on failure so that
-        # subsequent steps can collect artefacts and display human-readable
-        # results; the final check step will fail the job if needed
-        continue-on-error: true
-        with:
-          sbom: "${{ steps.sbom.outputs.sbom_json_path }}"
-          output-format: "sarif"
-          output-file: "grype-results.sarif"
-          fail-build: "true"
+      - name: "SBOM summary"
+        run: |
+            # SBOM summary
+            {
+              echo "## SBOM Summary"
+              echo "SBOM count: ${{ steps.sbom.outputs.component_count }}"
+              echo "Tool used: ${{ steps.sbom.outputs.dependency_manager }}"
+            } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: "Security scan with Grype (Text/Table)"
-        # yamllint disable-line rule:line-length
-        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2  # v7.4.0
-        id: grype-table
-        if: always()
+  grype:
+    name: 'Grype Audit SBOM'
+    runs-on: ubuntu-latest
+    needs: 'sbom'
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      # Harden the runner used by this workflow
+      # yamllint disable-line rule:line-length
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
-          sbom: "${{ steps.sbom.outputs.sbom_json_path }}"
-          output-format: "table"
-          output-file: "grype-results.txt"
-          # Differs from build-test.yaml, which requires fixes to be applied
-          # Deliberately set to not block releases if/when tags are pushed
-          fail-build: "false"
+          egress-policy: 'audit'
+
+      - name: "Download SBOM artefact"
+        # yamllint disable-line rule:line-length
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: sbom-files
+
+      - name: "Install Grype"
+        id: grype
+        # yamllint disable-line rule:line-length
+        uses: anchore/scan-action/download-grype@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2  # v7.4.0
+        with:
+          cache-db: "true"
+
+      # The NO_BLOCK_AUDIT_FAIL repository variable (when set to
+      # 'true') disables failure propagation so releases can proceed
+      # when blocked by newly discovered CVEs in transitive
+      # dependencies. Without the override, this step turns red in the
+      # workflow run's Actions/Checks UI and is the sole source of the
+      # job's failure annotation; the CVE table is printed directly
+      # into the step log by echoing grype-results.txt.
+      - name: "Grype audit SBOM"
+        id: grype-audit
+        env:
+          GRYPE_CMD: "${{ steps.grype.outputs.cmd }}"
+          NO_BLOCK_AUDIT_FAIL: >-
+            ${{ vars.NO_BLOCK_AUDIT_FAIL == 'true' }}
+        run: |
+            # Run grype once, emitting all three output formats
+            # Render the human-readable table in this step's log
+            set +e
+            "${GRYPE_CMD}" \
+              -o "sarif=grype-results.sarif" \
+              -o "json=grype-results.json" \
+              -o "table=grype-results.txt" \
+              --fail-on medium \
+              "sbom:sbom-cyclonedx.json"
+            grype_exit=$?
+            set -e
+
+            echo "--- Grype scan results ---"
+            if [ -f grype-results.txt ]; then
+              cat grype-results.txt
+            else
+              echo "No table output produced"
+            fi
+
+            # grype returns 2 when it finds vulnerabilities at or
+            # above the configured --fail-on threshold; any other
+            # non-zero exit is treated as a grype failure.
+            if [ "${grype_exit}" = "0" ]; then
+              echo "No vulnerabilities at or above 'medium'"
+              exit 0
+            fi
+            if [ "${grype_exit}" != "2" ]; then
+              echo "::error::Grype exited with code ${grype_exit}"
+              exit "${grype_exit}"
+            fi
+
+            if [ "${NO_BLOCK_AUDIT_FAIL}" = "true" ]; then
+              echo "::warning::Grype found vulnerabilities at or" \
+                "above the 'medium' threshold, but" \
+                "NO_BLOCK_AUDIT_FAIL is set so the job will not" \
+                "fail."
+              exit 0
+            fi
+            echo "::error::Grype found vulnerabilities at or above" \
+              "the 'medium' severity threshold. See the table" \
+              "above for the offending packages and CVEs."
+            exit 1
 
       - name: "Upload Grype scan results"
         # yamllint disable-line rule:line-length
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         if: always()
         with:
           name: grype-scan-results
           path: |
             grype-results.sarif
+            grype-results.json
             grype-results.txt
           retention-days: 90
+          if-no-files-found: warn
 
       - name: "Grype summary"
         if: always()
         run: |
-            # Grype summary
+            # Render a Markdown table of Grype matches in the job
+            # step summary. The CVE data is sourced from the JSON
+            # scan output (grype-results.json) and processed with
+            # jq so that multi-word cells cannot accidentally break
+            # the Markdown table column layout. Any literal pipe
+            # characters present in cell content are escaped.
             {
-              echo "## SBOM Summary"
-              echo "SBOM count: ${{ steps.sbom.outputs.component_count }}"
-              echo "Tool used: ${{ steps.sbom.outputs.dependency_manager }}"
-              echo ""
               echo "## Grype Vulnerability Scan"
-              if [ -f grype-results.txt ]; then
-                cat grype-results.txt
-              else
+              echo ""
+              if [ ! -f grype-results.json ]; then
                 echo "No scan results available"
+                exit 0
               fi
+              match_count=$(jq '.matches | length' grype-results.json)
+              if [ "${match_count}" = "0" ]; then
+                echo "No vulnerabilities found at or above the" \
+                  "configured severity threshold."
+                exit 0
+              fi
+              echo "Found ${match_count} matching Grype record(s)."
+              echo ""
+              echo "| Package | Installed | Fixed In | Type |" \
+                "Vulnerability | Severity | EPSS | Risk |"
+              echo "| --- | --- | --- | --- | --- | --- | --- | --- |"
+              jq -r '
+                def esc: tostring | gsub("\\|"; "\\|");
+                # Round a numeric value to two decimal places
+                # using half-up rounding via jq built-in `round`.
+                def round2: (. * 100 | round) / 100;
+                def epss_pct:
+                  ( .vulnerability.epss // [] ) as $e
+                  | if ($e | length) == 0 then "-"
+                    else ( $e[0].epss // 0 ) as $p
+                      | if $p == 0 then "0%"
+                        elif ($p * 100) < 0.01 then "<0.01%"
+                        else ( ($p * 100) | round2 | tostring
+                               + "%" ) end
+                    end;
+                def risk_fmt:
+                  .vulnerability.risk
+                  | if . == null then "-"
+                    elif type == "number" then
+                      (round2 | tostring)
+                    else (. | tostring) end;
+                .matches[] |
+                [ (.artifact.name // "-" | esc),
+                  (.artifact.version // "-" | esc),
+                  ( ( .vulnerability.fix.versions // [] )
+                    | if length == 0 then "-"
+                      else join(", ") end | esc ),
+                  (.artifact.type // "-" | esc),
+                  (.vulnerability.id // "-" | esc),
+                  (.vulnerability.severity // "-" | esc),
+                  epss_pct,
+                  risk_fmt
+                ] | "| " + join(" | ") + " |"
+              ' grype-results.json
             } >> "$GITHUB_STEP_SUMMARY"
-            if [ -f grype-results.txt ]; then
-              echo "--- Grype scan results ---"
-              cat grype-results.txt
-            fi
-
-      - name: "Check Grype scan results"
-        if: steps.grype-sarif.outcome == 'failure'
-        run: |
-            # Check Grype scan results
-            echo "::error::Grype found vulnerabilities" \
-              "at or above severity threshold"
-            echo "Review the Grype Summary above or download the" \
-              "grype-scan-results artifact for details"
-            exit 1
 
   test-pypi:
     name: 'Test PyPI Publishing'
@@ -310,13 +413,13 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       - name: 'Test PyPI publishing'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/pypi-publish-action@f6a61d7d6f83b1279bc6599b84d2f0ecbbe359a2  # v0.1.5
+        uses: lfreleng-actions/pypi-publish-action@f07400a2b57119f1ceac420f559803264b491f23  # v0.1.6
         with:
           environment: 'development'
           tag: "${{ needs.tag-validate.outputs.tag }}"
@@ -337,13 +440,13 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       - name: 'PyPI release'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/pypi-publish-action@f6a61d7d6f83b1279bc6599b84d2f0ecbbe359a2  # v0.1.5
+        uses: lfreleng-actions/pypi-publish-action@f07400a2b57119f1ceac420f559803264b491f23  # v0.1.6
         with:
           environment: 'production'
           attestations: true
@@ -368,12 +471,12 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: '⬇ Download build artefacts'
         # yamllint disable-line rule:line-length
@@ -405,12 +508,12 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 30
 
@@ -469,12 +572,12 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594  # v2.16.0
+      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
         with:
           egress-policy: 'audit'
 
       # yamllint disable-line rule:line-length
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: 'Check if release is already promoted'
         id: 'check-promoted'
