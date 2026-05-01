@@ -273,6 +273,7 @@ jobs:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
           delay: "0s"
+          fetch-depth: 0
           ref: refs/heads/${{ inputs.GERRIT_BRANCH }}
 
       # --- Standard Checkout ---
@@ -280,6 +281,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 0
 
       - name: 'Build Python project'
         id: python-build
