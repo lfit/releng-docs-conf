@@ -159,7 +159,7 @@ jobs:
 
       - name: 'Test Python project [PYTEST]'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-test-action@92d4110d44ebc18fa4575c6b00203ff67d01a1cb  # v1.0.1
+        uses: modeseven-lfreleng-actions/python-test-action@77fa580272bb0eae06dcff59c48d0e404cc04f2f  # PR #140 HEAD (temporary)
         with:
           python_version: "${{ matrix.python-version }}"
 
@@ -186,7 +186,7 @@ jobs:
 
       - name: 'Audit Python project'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-audit-action@1776538e768c52c55c3c96495f6e25f0762ad28f  # v0.2.6
+        uses: modeseven-lfreleng-actions/python-audit-action@4e27678e3593cbfc1c3ef6103ed8da5f7870fa50  # PR #129 HEAD (temporary; transitively pins python-project-name-action PR #98)
         with:
           python_version: "${{ matrix.python-version }}"
 
