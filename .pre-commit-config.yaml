@@ -112,7 +112,7 @@ repos:
         exclude: ^docs_conf/conf\.py$
 
   - repo: https://github.com/lfreleng-actions/gha-workflow-linter
-    rev: 2c315e461ec3379bf9c1682360fdc1a3899f88c9  # frozen: v1.0.4
+    rev: 282030acf19607dfd6c592f8263a81941ed06e90  # frozen: v1.1.1
     hooks:
       - id: gha-workflow-linter
 
