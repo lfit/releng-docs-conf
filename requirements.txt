@@ -3,7 +3,6 @@ Sphinx>=7.0.0,<10.0.0  # BSD
 sphinx-needs  # Replaces deprecated sphinxcontrib-needs
 sphinx-rtd-theme
 sphinx-tabs
-sphinx_bootstrap_theme
 sphinxcontrib-mermaid  # Replaces abandoned blockdiag/seqdiag/nwdiag
 sphinxcontrib-openapi  # Replaces abandoned sphinxcontrib-swaggerdoc
 sphinxcontrib.plantuml
