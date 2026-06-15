@@ -21,7 +21,7 @@ Follow these steps to install lfdocs-conf:
      project_cfg: PROJECT
 
    Replace PROJECT with the name of a project configuration for your top-level
-   project. Eg. acumos, onap, opendaylight, opnfv, etc... See here for a `list
+   project. Eg. acumos, onap, opendaylight, etc... See here for a `list
    of valid projects
    <https://github.com/lfit/releng-docs-conf/tree/master/docs_conf/defaults>`_.
    If you are a new project and do not yet have a defaults file then please

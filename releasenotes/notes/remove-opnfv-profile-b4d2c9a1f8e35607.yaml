@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    The OPNFV project profile (docs_conf/defaults/opnfv.yaml) and the
+    associated sphinx_opnfv_theme handling in conf.py have been removed.
+    OPNFV is no longer supported by this tooling. The profile relied on the
+    unmaintained sphinx_opnfv_theme, which was never declared as a
+    dependency, so builds using "project_cfg: opnfv" were already broken.
+    Affected projects should select a maintained profile or fall back to the
+    default configuration.
