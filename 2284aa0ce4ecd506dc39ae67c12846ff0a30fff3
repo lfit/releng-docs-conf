@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46934ecb_b754f45a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2026-06-15T20:57:23Z",
+      "side": 1,
+      "message": "Going to add some supporting information here.\n\nThe theme itself hasn\u0027t been updated for ~4.5 years, hence removal.\n\nBootstrap 2.3.2 / 3.3.7 (the CSS it bundles)\nThe Bootstrap project is healthy, but only the current major is supported (v5, currently 5.3.x). The versions baked into this theme are both long past end-of-life:\n- **Bootstrap 2.x — discontinued ~2013 when v3 shipped.\n- **Bootstrap 3.x — officially **EOL 2019-07-24 (Bootstrap team ended v3 support).\n- (Even Bootstrap 4 is now EOL, superseded by 5.)\n\nNo security or bug fixes flow to 2.x/3.x, and the dormant theme never advanced past them.\n\n## jQuery ~1.9.x (the JS it relies on)\nThe jQuery project is active (current 3.7.x), but the 1.x line is dead and carries known unpatched vulnerabilities**:\n- Last 1.x release was 1.12.4 (May 2016); jQuery 1.x and 2.x are unsupported — upstream recommends 3.x.\n- jQuery 1.9.x predates the security fixes in 3.4/3.5, so it\u0027s affected by well-documented advisories such as CVE-2019-11358 (prototype pollution) and CVE-2020-11022 / CVE-2020-11023 (XSS via DOM manipulation), plus CVE-2015-9251 (XSS). These are fixed only in jQuery ≥ 3.5.0.",
+      "revId": "2284aa0ce4ecd506dc39ae67c12846ff0a30fff3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
