@@ -10,6 +10,9 @@ dist
 *.egg-info
 *.pyc
 .cache
+.coverage
+.coverage.*
+coverage.xml
 
 # PBR
 AUTHORS
