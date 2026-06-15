@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: EPL-1.0
+# SPDX-FileCopyrightText: 2026 The Linux Foundation and others
+
+# Build configuration. Runtime/install dependencies live in requirements.txt
+# (consumed automatically by pbr); project metadata lives in setup.cfg.
+[build-system]
+requires = ["pbr>=7.0.0"]
+build-backend = "pbr.build"
