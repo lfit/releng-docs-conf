@@ -21,7 +21,7 @@ html_show_sphinx: false
 extensions:
   - sphinx.ext.intersphinx
   - sphinx.ext.coverage
-  - sphinxcontrib.blockdiag
+  - sphinxcontrib.mermaid
   - sphinx.ext.autodoc
   - sphinx.ext.doctest
   - sphinx.ext.graphviz
@@ -29,8 +29,6 @@ extensions:
   - sphinx.ext.imgmath
   - sphinx.ext.viewcode
   - sphinx_needs
-  - sphinxcontrib.nwdiag
-  - sphinxcontrib.seqdiag
   - sphinx.ext.ifconfig
   - sphinx.ext.todo
   - sphinxcontrib.plantuml
