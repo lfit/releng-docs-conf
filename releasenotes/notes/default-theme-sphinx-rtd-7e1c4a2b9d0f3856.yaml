@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    The default HTML theme is now sphinx-rtd-theme. The default,
+    OpenDaylight and lfdocs project profiles previously defaulted to the
+    unmaintained sphinx-bootstrap-theme and now use sphinx-rtd-theme
+    instead. sphinx-bootstrap-theme has been removed from the requirements
+    and is no longer imported unconditionally in conf.py; it is imported
+    lazily only when a project explicitly selects "html_theme: bootstrap".
+    Projects that still rely on the bootstrap theme must add
+    sphinx-bootstrap-theme to their own documentation requirements.

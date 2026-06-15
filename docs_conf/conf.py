@@ -18,7 +18,6 @@ import datetime
 import importlib
 import os.path
 
-import sphinx_bootstrap_theme
 import yaml
 
 
@@ -96,18 +95,18 @@ html_favicon = cfg.get("html_favicon", None)
 html_logo = cfg.get("html_logo", None)
 html_sidebars = cfg.get("html_sidebars", {"**": ["localtoc.html", "relations.html"]})
 html_static_path = cfg.get("html_static_path", [])
-html_theme = cfg.get("html_theme", "bootstrap")
-html_theme_options = cfg.get(
-    "html_theme_options",
-    {
-        "bootswatch_theme": "cerulean",
-        "navbar_sidebarrel": False,
-        "source_link_position": "footer",
-    },
-)
-html_theme_path = cfg.get(
-    "html_theme_path", sphinx_bootstrap_theme.get_html_theme_path()
-)
+html_theme = cfg.get("html_theme", "sphinx_rtd_theme")
+html_theme_options = cfg.get("html_theme_options", {})
+if html_theme == "bootstrap":
+    # sphinx-bootstrap-theme is no longer a declared dependency. Consumers
+    # that opt back into the bootstrap theme must install it themselves.
+    import sphinx_bootstrap_theme
+
+    html_theme_path = cfg.get(
+        "html_theme_path", sphinx_bootstrap_theme.get_html_theme_path()
+    )
+else:
+    html_theme_path = cfg.get("html_theme_path", [])
 htmlhelp_basename = cfg.get("htmlhelp_basename", "DocsConf")
 
 intersphinx_mapping = {
