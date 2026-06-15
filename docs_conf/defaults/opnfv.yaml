@@ -11,6 +11,8 @@ extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.napoleon
   - sphinx.ext.viewcode
+  - sphinxcontrib.mermaid
+  - sphinxcontrib.openapi
 exclude_patterns:
   - .DS_Store
   - _build
