@@ -2,9 +2,6 @@
 
 from setuptools import setup
 
-
-with open("requirements.txt") as f:
-    install_reqs = f.read().splitlines()
-
-
-setup(setup_requires=["pbr"], pbr=True, install_requires=install_reqs)
+# All packaging metadata is declared in setup.cfg and install requirements in
+# requirements.txt; pbr wires both into the build.
+setup(pbr=True)
