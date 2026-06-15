@@ -1,0 +1,21 @@
+---
+upgrade:
+  - |
+    The abandoned sphinxcontrib-blockdiag, sphinxcontrib-seqdiag and
+    sphinxcontrib-nwdiag extensions, together with the funcparserlib
+    dependency they required, have been removed and replaced with
+    sphinxcontrib-mermaid. These packages were last released in 2021,
+    support only Python 3.7-3.9, and break on modern toolchains
+    (Python 3.12+, Pillow 10+, setuptools 82+). Projects that still use
+    blockdiag, seqdiag or nwdiag diagram directives must convert them to
+    Mermaid before adopting this release. See the ONAP
+    "diagrams-blockdiag-to-mermaid" migration guide for worked examples.
+features:
+  - |
+    Standardise diagram and API documentation tooling across the project
+    profiles. sphinxcontrib-mermaid (diagrams) and sphinxcontrib-openapi
+    (API documentation) are now available in the ONAP, OpenDaylight and
+    O-RAN-SC profiles, giving consistent tooling across these consuming
+    projects. Mermaid renders client-side with no Java, Graphviz or
+    Pillow dependency and covers both block and sequence diagrams in a
+    single, actively maintained extension.
