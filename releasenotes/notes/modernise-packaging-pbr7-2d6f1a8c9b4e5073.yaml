@@ -1,0 +1,18 @@
+---
+upgrade:
+  - |
+    The build now uses a PEP 517 build backend. A pyproject.toml declares
+    pbr>=7.0.0 as the build requirement and pbr.build as the backend,
+    replacing the deprecated setup_requires path in setup.py. pbr 7.0 drops
+    the runtime dependency on pkg_resources, which was removed in
+    setuptools 81+, so source builds on modern toolchains (Read the Docs, tox)
+    no longer fail to import pbr. The documentation build pins in
+    docs/requirements.txt are likewise refreshed from the long-stale
+    pbr~=5.4.5 / reno~=2.10.0 to pbr>=7.0.0 / reno>=4.0.0.
+fixes:
+  - |
+    The wheel is now tagged py3-none-any instead of py2.py3-none-any. The
+    [wheel] universal = 1 marker in setup.cfg was a Python 2/3 universal-wheel
+    flag that is incorrect for this Python 3-only project and has been
+    removed. The legacy hyphenated pbr/d2to1 metadata keys (author-email,
+    description-file, home-page) are migrated to their underscore equivalents.
