@@ -1,13 +1,9 @@
-# ONAP needs this, should not affect any others.
-funcparserlib>=1.0.0a0
 PyYAML  # MIT
 Sphinx>=7.0.0,<10.0.0  # BSD
 sphinx-needs  # Replaces deprecated sphinxcontrib-needs
 sphinx-rtd-theme
 sphinx-tabs
 sphinx_bootstrap_theme
-sphinxcontrib-blockdiag  # BSD
-sphinxcontrib-nwdiag  # BSD
+sphinxcontrib-mermaid  # Replaces abandoned blockdiag/seqdiag/nwdiag
 sphinxcontrib-openapi  # Replaces abandoned sphinxcontrib-swaggerdoc
-sphinxcontrib-seqdiag  # BSD
 sphinxcontrib.plantuml
