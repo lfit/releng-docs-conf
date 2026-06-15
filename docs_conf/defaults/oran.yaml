@@ -5,7 +5,7 @@ version: master
 author: O-RAN Project
 copyright: "{}, O-RAN Project"
 
-needs_sphinx: "1.6.5"
+needs_sphinx: "7.0"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest
