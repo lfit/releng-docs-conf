@@ -110,7 +110,7 @@ jobs:
         run: sleep 10s
 
   # ===================================================================
-  # Lint: actionlint + pre-commit (parallel with build pipeline)
+  # Lint: actionlint + prek (parallel with build pipeline)
   # ===================================================================
   actionlint:
     name: 'Actionlint'
@@ -190,7 +190,7 @@ jobs:
           python-version: "3.11"
       - name: Run static analysis and format checkers
         # yamllint disable-line rule:line-length
-        run: SKIP=actionlint pipx run pre-commit run --all-files --show-diff-on-failure
+        run: SKIP=actionlint pipx run prek run --all-files --show-diff-on-failure
 
   # ===================================================================
   # Repository Metadata
