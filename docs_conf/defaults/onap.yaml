@@ -7,6 +7,7 @@ author: "Open Network Automation Platform"
 # yamllint disable-line rule:line-length
 copyright: "ONAP. Licensed under Creative Commons Attribution 4.0 International License."
 
+needs_sphinx: "7.0"
 pygments_style: "sphinx"
 html_theme: sphinx_rtd_theme
 html_theme_options:

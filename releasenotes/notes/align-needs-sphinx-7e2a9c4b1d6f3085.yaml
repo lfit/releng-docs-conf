@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    The needs_sphinx minimum-version floor is now aligned to "7.0" across
+    every project profile (default, lfdocs, ONAP, OpenDaylight and O-RAN-SC)
+    and the bundled examples/conf.yaml. Several profiles previously declared
+    an ancient "1.6.5" floor while the default profile required "5.0", so the
+    effective minimum varied by profile. The new floor matches the
+    Sphinx>=7.0.0 lower bound already pinned in requirements.txt.
+    Documentation builds that somehow pin an older Sphinx will now fail fast
+    with a clear version error rather than breaking later in the build.
