@@ -105,14 +105,9 @@ html_theme_options = cfg.get(
         "source_link_position": "footer",
     },
 )
-if html_theme == "opnfv":
-    import sphinx_opnfv_theme
-
-    html_theme_path = sphinx_opnfv_theme.get_html_theme_path()
-else:
-    html_theme_path = cfg.get(
-        "html_theme_path", sphinx_bootstrap_theme.get_html_theme_path()
-    )
+html_theme_path = cfg.get(
+    "html_theme_path", sphinx_bootstrap_theme.get_html_theme_path()
+)
 htmlhelp_basename = cfg.get("htmlhelp_basename", "DocsConf")
 
 intersphinx_mapping = {
