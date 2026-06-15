@@ -1,4 +1,9 @@
 PyYAML  # MIT
+# Keep an upper bound: pull a tested Sphinx (7.x-9.x) and exclude the next,
+# unreleased major (10.x) until the theme/extensions are verified against it.
+# Note the Python-floor interaction: Python 3.10/3.11 resolve older Sphinx
+# releases (8.1.x / earlier) than 3.12+ (8.2.x+), so the supported matrix must
+# exercise the low end too.
 Sphinx>=7.0.0,<10.0.0  # BSD
 sphinx-needs  # Replaces deprecated sphinxcontrib-needs
 sphinx-rtd-theme
