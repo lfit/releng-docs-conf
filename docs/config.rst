@@ -16,7 +16,7 @@ is as follows:
 Typically {project_cfg}.yaml provides a common theme across related
 projects. For example all subprojects within the OpenDaylight project share
 the common docs_conf/defaults/opendaylight.yaml. All fields provided by
-defaults are overidable via one of 2 ways.
+defaults are overridable via one of 2 ways.
 
 #. conf.yaml (preferred)
 #. conf.py

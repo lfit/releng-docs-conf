@@ -94,6 +94,7 @@ jobs:
       inputs.MANUAL_DISPATCH == false
       && inputs.GERRIT_CHANGE_NUMBER != ''
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Clear votes
         # yamllint disable-line rule:line-length
@@ -110,7 +111,7 @@ jobs:
         run: sleep 10s
 
   # ===================================================================
-  # Lint: actionlint + pre-commit (parallel with build pipeline)
+  # Lint: actionlint + prek (parallel with build pipeline)
   # ===================================================================
   actionlint:
     name: 'Actionlint'
@@ -190,7 +191,7 @@ jobs:
           python-version: "3.11"
       - name: Run static analysis and format checkers
         # yamllint disable-line rule:line-length
-        run: SKIP=actionlint pipx run pre-commit run --all-files --show-diff-on-failure
+        run: SKIP=actionlint pipx run prek run --all-files --show-diff-on-failure
 
   # ===================================================================
   # Repository Metadata
@@ -642,6 +643,7 @@ jobs:
       - sbom
       - grype
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Get workflow conclusion
         # yamllint disable-line rule:line-length
