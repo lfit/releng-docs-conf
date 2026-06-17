@@ -5,7 +5,7 @@ version: master
 author: DEFAULT_AUTHOR
 copyright: "{}, DEFAULT_PROJECT"
 
-needs_sphinx: "5.0"
+needs_sphinx: "7.0"
 extensions:
   - sphinx.ext.autodoc
   - sphinx.ext.doctest
