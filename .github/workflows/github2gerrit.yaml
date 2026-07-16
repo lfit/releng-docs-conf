@@ -54,7 +54,7 @@ jobs:
 
       - name: 'Run GitHub2Gerrit Action'
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/github2gerrit-action@192eb9699560d74775b84328f6e575e58fc33abe  # v1.3.0
+        uses: lfreleng-actions/github2gerrit-action@9f32f3c5c93c53176d0fedf23622c897f1d739f5  # v1.4.2
         with:
           USE_PR_AS_COMMIT: true
           ALLOW_DUPLICATES: ${{ inputs.allow_duplicates }}
