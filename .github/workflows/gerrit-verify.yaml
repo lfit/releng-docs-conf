@@ -296,7 +296,7 @@ jobs:
       - name: 'Build Python project'
         id: python-build
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-build-action@5f570d5d17a7315074a824a91c6a705b6fc5c7dd  # v1.1.2
+        uses: lfreleng-actions/python-build-action@3cdb6f8e3b9c6c8fb21cce123f7b873b3620273d  # v2.1.1
         with:
           clear_cache: ${{ github.event.inputs.clear_cache || 'false' }}
 
