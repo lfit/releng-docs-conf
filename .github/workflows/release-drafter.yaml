@@ -72,6 +72,6 @@ jobs:
 
       - name: 'Update draft release'
         # yamllint disable-line rule:line-length
-        uses: release-drafter/release-drafter@ed4bc48ec97379be2258e7b7ac2624a3e26ab809  # v7.4.0
+        uses: release-drafter/release-drafter@72967cdc98ddd3160f1fc3dff619de365e137dd0  # v7.9.0
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
