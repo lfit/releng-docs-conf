@@ -4,5 +4,5 @@
 # Build configuration. Runtime/install dependencies live in requirements.txt
 # (consumed automatically by pbr); project metadata lives in setup.cfg.
 [build-system]
-requires = ["pbr>=7.0.0"]
+requires = ["pbr>=7.1.3"]
 build-backend = "pbr.build"
