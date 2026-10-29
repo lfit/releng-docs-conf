@@ -4,7 +4,7 @@ PyYAML  # MIT
 # Note the Python-floor interaction: Python 3.10/3.11 resolve older Sphinx
 # releases (8.1.x / earlier) than 3.12+ (8.2.x+), so the supported matrix must
 # exercise the low end too.
-Sphinx>=7.0.0,<10.0.0  # BSD
+Sphinx>=9.2.0,<10.0.0  # BSD
 sphinx-needs  # Replaces deprecated sphinxcontrib-needs
 sphinx-rtd-theme
 sphinx-tabs
