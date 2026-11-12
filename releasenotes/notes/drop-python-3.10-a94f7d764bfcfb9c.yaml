@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    Python 3.10 is no longer supported; the minimum supported version is now
+    Python 3.11. Python 3.10 reached end of life in October 2026 and no
+    longer receives security fixes, and current releases of several packages
+    in the documentation toolchain (sphinx-needs, sphinxcontrib-openapi) have
+    already dropped it. Projects that build their documentation on Python
+    3.10 must move to Python 3.11 or later to pick up new lfdocs-conf
+    releases; pip on Python 3.10 will keep resolving the last release that
+    supports it.
