@@ -12,6 +12,12 @@ on:
     tags:
       - '**'
 
+# One release run per tag. A run in flight is never cancelled: it may
+# already have published to PyPI.
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: false
+
 permissions: {}
 
 jobs:
@@ -20,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: read  # Lists the files a pull request changed
     timeout-minutes: 5
     steps:
       # yamllint disable-line rule:line-length
@@ -32,6 +38,7 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: "Gather repository metadata"
         id: repo-metadata
@@ -65,6 +72,7 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+          persist-credentials: false
 
       - name: 'Verify pushed tag'
         id: 'tag-validate'
@@ -83,9 +91,9 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          TAG: "${{ steps.tag-validate.outputs.tag_name }}"
         run: |
           # Ensure draft release exists
-          TAG="${{ steps.tag-validate.outputs.tag_name }}"
           # Check if release exists and get its draft status
           if RELEASE_INFO=$(gh release view "$TAG" \
             --json isDraft 2>/dev/null); then
@@ -127,6 +135,8 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: 'Build Python project'
         id: 'python-build'
@@ -156,6 +166,8 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: 'Test Python project [PYTEST]'
         # yamllint disable-line rule:line-length
@@ -183,6 +195,8 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: 'Audit Python project'
         # yamllint disable-line rule:line-length
@@ -210,6 +224,8 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: "Generate SBOM"
         id: sbom
@@ -230,12 +246,15 @@ jobs:
           retention-days: 45
 
       - name: "SBOM summary"
+        env:
+          COMPONENT_COUNT: ${{ steps.sbom.outputs.component_count }}
+          DEPENDENCY_MANAGER: ${{ steps.sbom.outputs.dependency_manager }}
         run: |
             # SBOM summary
             {
               echo "## SBOM Summary"
-              echo "SBOM count: ${{ steps.sbom.outputs.component_count }}"
-              echo "Tool used: ${{ steps.sbom.outputs.dependency_manager }}"
+              echo "SBOM count: $COMPONENT_COUNT"
+              echo "Tool used: $DEPENDENCY_MANAGER"
             } >> "$GITHUB_STEP_SUMMARY"
 
   grype:
@@ -477,6 +496,8 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: '⬇ Download build artefacts'
         # yamllint disable-line rule:line-length
@@ -516,6 +537,7 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 30
+          persist-credentials: false
 
       - name: 'Configure Python'
         # yamllint disable-line rule:line-length
@@ -525,9 +547,10 @@ jobs:
 
       - name: 'Generate reno report'
         shell: bash
+        env:
+          TAG: "${{ needs.tag-validate.outputs.tag }}"
         run: |
           # Generate reno release notes
-          TAG="${{ needs.tag-validate.outputs.tag }}"
           pipx run tox -e reno -- report \
             --version "$TAG" \
             2>/dev/null > reno-notes.md || true
@@ -545,9 +568,10 @@ jobs:
 
       - name: 'Update release notes'
         shell: bash
+        env:
+          TAG: "${{ needs.tag-validate.outputs.tag }}"
         run: |
           # Update draft release with reno notes
-          TAG="${{ needs.tag-validate.outputs.tag }}"
           if [ -s modified-reno-notes.md ]; then
             gh release edit "$TAG" \
               --notes-file modified-reno-notes.md
@@ -578,14 +602,16 @@ jobs:
 
       # yamllint disable-line rule:line-length
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: 'Check if release is already promoted'
         id: 'check-promoted'
         shell: bash
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          TAG: "${{ needs.tag-validate.outputs.tag }}"
         run: |
-          TAG="${{ needs.tag-validate.outputs.tag }}"
           if gh release view "$TAG" --json isDraft --jq '.isDraft' \
               2>/dev/null | grep -q "false"; then
             echo "Release $TAG is already promoted, skipping promotion"
@@ -612,7 +638,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          TAG: "${{ needs.tag-validate.outputs.tag }}"
         run: |
-          TAG="${{ needs.tag-validate.outputs.tag }}"
           RELEASE_URL=$(gh release view "$TAG" --json url --jq '.url')
           echo "release_url=$RELEASE_URL" >> "$GITHUB_OUTPUT"

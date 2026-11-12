@@ -4,8 +4,12 @@
 
 name: 'GitHub2Gerrit Python'
 
+# pull_request_target is needed for the Gerrit key: a pull_request run
+# started by Dependabot or from a fork is given no secrets. The job
+# never checks out or runs pull request code; the action fetches the
+# head into a temporary directory of its own.
 # yamllint disable-line rule:truthy
-on:
+on:  # zizmor: ignore[dangerous-triggers]
   workflow_dispatch:
     inputs:
       preserve_github_prs:
@@ -28,14 +32,16 @@ concurrency:
   group: "${{ github.workflow }}-${{ github.run_id }}"
   cancel-in-progress: true
 
+permissions: {}
+
 jobs:
   github2gerrit:
     name: 'GitHub2Gerrit Python'
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
-      issues: write
+      pull-requests: write  # Comments on and closes the pull request
+      issues: write  # Pull request comments go through the issues API
     timeout-minutes: 12
     steps:
       # Harden the runner used by this workflow
@@ -45,13 +51,6 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: 'Checkout repository'
-        # yamllint disable-line rule:line-length
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
-        with:
-          fetch-depth: 10
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-
       - name: 'Run GitHub2Gerrit Action'
         # yamllint disable-line rule:line-length
         uses: lfreleng-actions/github2gerrit-action@b9d68f3d3630d5020f8b89daa95590f05a277403  # v2.4.8
@@ -59,6 +58,9 @@ jobs:
           USE_PR_AS_COMMIT: true
           ALLOW_DUPLICATES: ${{ inputs.allow_duplicates }}
           PRESERVE_GITHUB_PRS: ${{ inputs.preserve_github_prs }}
-          GERRIT_SSH_PRIVKEY_G2G: ${{ secrets.GERRIT_SSH_PRIVKEY_G2G }}
+          # An organisation secret, which an environment in this
+          # repository cannot scope
+          # yamllint disable-line rule:line-length
+          GERRIT_SSH_PRIVKEY_G2G: ${{ secrets.GERRIT_SSH_PRIVKEY_G2G }}  # zizmor: ignore[secrets-outside-env]
           GERRIT_KNOWN_HOSTS: ${{ vars.GERRIT_KNOWN_HOSTS }}
           VERBOSE: true

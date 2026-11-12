@@ -85,6 +85,7 @@ jobs:
   # Gerrit: Clear previous Verified vote (skipped for manual dispatch)
   # ===================================================================
   clear-vote:
+    name: 'Clear Gerrit Vote'
     if: >-
       inputs.MANUAL_DISPATCH == false
       && inputs.GERRIT_CHANGE_NUMBER != ''
@@ -97,7 +98,11 @@ jobs:
         with:
           host: ${{ vars.LFIT_GERRIT_SERVER }}
           username: ${{ vars.LFIT_GERRIT_SSH_USER }}
-          key: ${{ secrets.LFIT_GERRIT_SSH_PRIVKEY_NP }}
+          # An organisation secret, which an environment in this
+          # repository cannot scope; a deployment gate would only stall
+          # the vote on every patchset.
+          # yamllint disable-line rule:line-length
+          key: ${{ secrets.LFIT_GERRIT_SSH_PRIVKEY_NP }}  # zizmor: ignore[secrets-outside-env]
           known_hosts: ${{ vars.LFIT_GERRIT_KNOWN_HOSTS }}
           gerrit-change-number: ${{ inputs.GERRIT_CHANGE_NUMBER }}
           gerrit-patchset-number: ${{ inputs.GERRIT_PATCHSET_NUMBER }}
@@ -136,6 +141,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: Download actionlint
         id: get_actionlint
@@ -143,7 +150,9 @@ jobs:
         run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
         shell: bash
       - name: Check workflow files
-        run: ${{ steps.get_actionlint.outputs.executable }} -color
+        env:
+          ACTIONLINT: ${{ steps.get_actionlint.outputs.executable }}
+        run: '"$ACTIONLINT" -color'
         shell: bash
 
   pre-commit:
@@ -178,6 +187,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: Configure Python
         # yamllint disable-line rule:line-length
@@ -201,7 +212,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: read  # Lists the files a pull request changed
     timeout-minutes: 5
     steps:
       # yamllint disable-line rule:line-length
@@ -228,6 +239,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: "Gather repository metadata"
         id: repo-metadata
@@ -286,6 +298,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: 'Build Python project'
         id: python-build
@@ -336,6 +349,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: "Python tests [pytest] ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
@@ -382,6 +397,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: "Audit dependencies ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
@@ -423,6 +440,8 @@ jobs:
         if: inputs.GERRIT_REFSPEC == ''
         # yamllint disable-line rule:line-length
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: "Generate SBOM"
         id: sbom
@@ -443,12 +462,15 @@ jobs:
           retention-days: 45
 
       - name: "SBOM summary"
+        env:
+          COMPONENT_COUNT: ${{ steps.sbom.outputs.component_count }}
+          DEPENDENCY_MANAGER: ${{ steps.sbom.outputs.dependency_manager }}
         run: |
             # SBOM summary
             {
               echo "## SBOM Summary"
-              echo "SBOM count: ${{ steps.sbom.outputs.component_count }}"
-              echo "Tool used: ${{ steps.sbom.outputs.dependency_manager }}"
+              echo "SBOM count: $COMPONENT_COUNT"
+              echo "Tool used: $DEPENDENCY_MANAGER"
             } >> "$GITHUB_STEP_SUMMARY"
 
   # ===================================================================
@@ -620,6 +642,7 @@ jobs:
   # Gerrit: Vote result (skipped for manual dispatch)
   # ===================================================================
   vote:
+    name: 'Gerrit Vote'
     if: >-
       always()
       && inputs.MANUAL_DISPATCH == false
@@ -646,7 +669,9 @@ jobs:
         with:
           host: ${{ vars.LFIT_GERRIT_SERVER }}
           username: ${{ vars.LFIT_GERRIT_SSH_USER }}
-          key: ${{ secrets.LFIT_GERRIT_SSH_PRIVKEY_NP }}
+          # See the clear-vote job for why no environment holds this key
+          # yamllint disable-line rule:line-length
+          key: ${{ secrets.LFIT_GERRIT_SSH_PRIVKEY_NP }}  # zizmor: ignore[secrets-outside-env]
           known_hosts: ${{ vars.LFIT_GERRIT_KNOWN_HOSTS }}
           gerrit-change-number: ${{ inputs.GERRIT_CHANGE_NUMBER }}
           gerrit-patchset-number: ${{ inputs.GERRIT_PATCHSET_NUMBER }}
