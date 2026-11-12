@@ -26,11 +26,6 @@ on:
         required: false
         type: boolean
         default: false
-      clear_cache:
-        description: 'Clear all Python dependency caches'
-        type: boolean
-        default: false
-        required: false
       GERRIT_BRANCH:
         description: "Branch that change is against"
         required: false
@@ -98,7 +93,7 @@ jobs:
     steps:
       - name: Clear votes
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/gerrit-review-action@a5de1d5bf17c2603ae81544dc2a455017b454ec8  # v1.1.1
+        uses: lfreleng-actions/gerrit-review-action@31093af31cec3755c34d8563ee54e2b7eb3a4eac  # v1.3.1
         with:
           host: ${{ vars.LFIT_GERRIT_SERVER }}
           username: ${{ vars.LFIT_GERRIT_SSH_USER }}
@@ -129,7 +124,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -171,7 +166,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -188,7 +183,7 @@ jobs:
         # yamllint disable-line rule:line-length
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
-          python-version: "3.11"
+          python-version: "3.14"
       - name: Run static analysis and format checkers
         # yamllint disable-line rule:line-length
         run: SKIP=actionlint pipx run prek run --all-files --show-diff-on-failure
@@ -210,7 +205,7 @@ jobs:
     timeout-minutes: 5
     steps:
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a  # v2.22.4
         with:
           egress-policy: audit
 
@@ -218,7 +213,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -237,7 +232,7 @@ jobs:
       - name: "Gather repository metadata"
         id: repo-metadata
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/repository-metadata-action@61e837ecf6a21ef991c14991b43560f592a50a24  # v0.2.3
+        uses: lfreleng-actions/repository-metadata-action@b5fc39002b54a9863975c89d0bd0c347a9861954  # v0.5.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_summary: 'true'
@@ -262,14 +257,13 @@ jobs:
       artefact_path: "${{ steps.python-build.outputs.artefact_path }}"
     permissions:
       contents: read
-      actions: write  # Required for cache deletion when clear_cache is true
     timeout-minutes: 12
     env:
       GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a  # v2.22.4
         with:
           egress-policy: 'audit'
 
@@ -277,7 +271,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -296,9 +290,7 @@ jobs:
       - name: 'Build Python project'
         id: python-build
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-build-action@5f570d5d17a7315074a824a91c6a705b6fc5c7dd  # v1.1.2
-        with:
-          clear_cache: ${{ github.event.inputs.clear_cache || 'false' }}
+        uses: lfreleng-actions/python-build-action@3a996fe53edf0117e283b9fef8d3aacaa9adaf02  # v2.1.2
 
   # ===================================================================
   # Python Tests (matrix)
@@ -324,7 +316,7 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a  # v2.22.4
         with:
           egress-policy: audit
 
@@ -332,7 +324,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -347,7 +339,7 @@ jobs:
 
       - name: "Python tests [pytest] ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-test-action@aa753462f090101dcb0c4708e9499f55e276e373  # v1.1.2
+        uses: lfreleng-actions/python-test-action@644a2008072617b9cf4846ca2b9d385691f9dc67  # v1.3.3
         with:
           python_version: ${{ matrix.python-version }}
 
@@ -370,7 +362,7 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a  # v2.22.4
         with:
           egress-policy: 'audit'
 
@@ -378,7 +370,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -393,7 +385,7 @@ jobs:
 
       - name: "Audit dependencies ${{ matrix.python-version }}"
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/python-audit-action@fcb1b2e0cdbe19edf11057e598138f3d57f2b249  # v0.3.1
+        uses: lfreleng-actions/python-audit-action@379a6a772cdf47b130bae3ab47718a22518bb83c  # v0.6.4
         with:
           python_version: "${{ matrix.python-version }}"
           # Honour the same NO_BLOCK_AUDIT_FAIL override as the Grype
@@ -419,7 +411,7 @@ jobs:
       - name: Checkout Gerrit change
         if: inputs.GERRIT_REFSPEC != ''
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/checkout-gerrit-change-action@8523d768952d9690702b4696a8310d2a84b1be39  # v1.0.1
+        uses: lfreleng-actions/checkout-gerrit-change-action@8721c15dacdd703064df5ade1416f7e5590b65f3  # v1.4.1
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           gerrit-url: ${{ vars.GERRIT_URL }}
@@ -475,7 +467,7 @@ jobs:
     steps:
       # Harden the runner used by this workflow
       # yamllint disable-line rule:line-length
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411  # v2.19.4
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a  # v2.22.4
         with:
           egress-policy: 'audit'
 
@@ -650,7 +642,7 @@ jobs:
         uses: im-open/workflow-conclusion@7b146947e59eaf7fc3328822357861ab1758c088  # v2.2.5
       - name: Set vote
         # yamllint disable-line rule:line-length
-        uses: lfreleng-actions/gerrit-review-action@a5de1d5bf17c2603ae81544dc2a455017b454ec8  # v1.1.1
+        uses: lfreleng-actions/gerrit-review-action@31093af31cec3755c34d8563ee54e2b7eb3a4eac  # v1.3.1
         with:
           host: ${{ vars.LFIT_GERRIT_SERVER }}
           username: ${{ vars.LFIT_GERRIT_SSH_USER }}
