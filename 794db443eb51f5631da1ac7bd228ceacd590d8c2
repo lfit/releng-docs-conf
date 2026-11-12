@@ -1,0 +1,8 @@
+Verified+1: LFIT GitHub-Gerrit <releng+github-lfit-gerrit@linuxfoundation.org>
+Code-Review+2: Vanessa Valderrama <vvalderrama@linuxfoundation.org>
+Verified+1: LFIT Required GHA <releng+lfit-required-gha@linuxfoundation.org>
+Submitted-by: Matthew Watkins <mwatkins@linuxfoundation.org>
+Submitted-at: Thu, 12 Nov 2026 17:44:50 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/docs-conf/+/74910
+Project: releng/docs-conf
+Branch: refs/heads/master
